@@ -1,0 +1,61 @@
+<!-- Order Confirmation -->
+<view wx:if="{{orderContents}}" class="container">
+  <scroll-view scroll-y>
+    <!--Shipping Information-->
+    <view wx:if="{{address}}" class="block shipping-info" catchtap="onAddressTap">
+      <text class="fa location fa-map-marker"></text>
+      <view class="wrapper">
+        <view class="customer">收货人：{{address.userName}}<text class="mobile">{{address.telNumber}}</text></view>
+        <view class="address">地址：{{address.cityName}} {{address.detailInfo}}</view>
+      </view>
+      <text class="fa angle-right fa-angle-right"></text>
+    </view>
+    <view wx:else class="block shipping-info" catchtap="onAddressTap">
+      <text class="fa location fa-map-marker"></text>
+      <view class="wrapper">
+        选择地址
+      </view>
+      <text class="fa angle-right fa-angle-right"></text>
+    </view>
+    <!--END: Shipping Information-->
+
+    <!--Order Content-->
+    <view class="block cart-item" wx:for="{{orderContents}}" wx:key="{{id}}">
+      <!-- Seller -->
+      <view class="seller">
+        <image src="{{item.avatar}}?imageMogr2/auto-orient/thumbnail/!56x56r/gravity/Center/crop/56x56|imageView2/1/format/jpg/interlace/0/q/100" mode="widthFix" />
+        <text>{{item.name}}</text>
+      </view>
+      <!-- END：Seller -->
+
+      <!-- Products -->
+      <view class="products">
+        <view class="product" wx:for="{{item.products}}" wx:key="{{pid}}">
+          <image src="{{item.image}}?imageMogr2/auto-orient/thumbnail/!400x400r/gravity/Center/crop/400x400|imageView2/1/format/jpg/interlace/0/q/100" mode="widthFix" />
+
+          <view class="content">
+            <text class="product-name">{{item.name}}</text>
+            <text class="product-en-name">{{item.enName}}</text>
+
+            <view class="price">
+              <text class="current">¥{{item.price}}</text>
+              <text wx:if="{{item.originalPrice > 0}}" class="original">¥{{item.originalPrice}}</text>
+            </view>
+            <view class="quantity">
+              x {{item.quantity}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- END：Products -->
+    </view>
+    <!--Order Content-->
+  </scroll-view>
+
+  <!-- Bottom Nav -->
+  <view class="nav-bottom">
+    <view>合计：<text class="total">¥{{orderTotal}}</text></view>
+    <button class="button small danger" catchtap="onOK">立即购买</button>
+  </view>
+  <!-- END: Bottom Nav -->
+</view>

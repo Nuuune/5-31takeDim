@@ -1,0 +1,252 @@
+.container {
+  height: 100%;
+  flex-direction: column;
+}
+
+scroll-view {
+  height: calc(100% - 100rpx);
+}
+
+.nav-bottom {
+  width: 750rpx;
+  height: 100rpx;
+  position: relative;
+  
+  border-top: 1px solid #dfdfdf;
+  background: #fff;
+  text-align: right;
+  font-size: 28rpx;
+  padding: 28rpx 28rpx 28rpx 0;
+}
+
+.nav-bottom .fa {
+  color: #fff;
+  display: inline-block;
+  border: 1px solid #ea4c89;
+  background: #0FBB58;
+  width: 64rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  border-radius: 50%;
+
+  position: absolute;
+  right: 48rpx;
+  top: -42rpx;
+}
+
+.head.author {
+  width: 750rpx;
+  padding: 28rpx;
+  background: #fff;
+  display: flex;
+}
+
+.head.author .avatar {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+}
+
+.head.author .info {
+  margin-left: 28rpx;
+}
+
+.head.author .info .name {
+  font-size: 28rpx;
+  display: block;
+}
+
+.head.author .info .desc {
+  display: block;
+  width: 560rpx;
+  font-size: 20rpx;
+  font-weight: 300;
+  color: #999999;
+  margin-top: 6rpx;
+}
+
+.coverImage {
+  width: 750rpx;
+  height: 450rpx;
+}
+
+.article {
+  margin-top: 56rpx;
+  padding: 0 28rpx 56rpx 28rpx;
+}
+
+.article .title {
+  font-size: 48rpx;
+  font-weight: 300;
+  text-align: center;
+  color: #000000;
+}
+
+.article .introduction {
+  margin-top: 24rpx;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  color: #999999;
+}
+
+.article .line {
+  width: 240rpx;
+  height: 1rpx;
+  background-color: #999999;
+  margin: 28rpx auto 0 auto;
+}
+
+.article .authorm {
+  margin-top: 56rpx;
+  font-size: 28rpx;
+  color: #000000;
+  text-align: center;
+}
+
+.article .t_text {
+    font-size: 32rpx;
+    color: #333;
+    font-weight: 400;
+    line-height: 1.63;
+    margin-top: 28rpx;
+}
+
+.article .t_image image {
+    width:100%;
+    margin: 56rpx auto;
+}
+
+.article .t_title {
+    width:100%;
+    margin: 56rpx auto;
+    font-size: 40rpx;
+    font-weight: bold;
+    line-height: 1.418;
+}
+
+.article .t_goods {
+    margin: 56rpx auto;
+    height: 312rpx;
+    border-radius: 6rpx;
+    background-color: #f9f8f8;
+    box-shadow: 0 2rpx 4rpx 0 rgba(0,0,0,.5);
+    position: relative;
+    padding: 28rpx;
+    display: flex;
+}
+
+.article .t_goods image {
+    width: 256rpx;
+    height: 256rpx;
+}
+
+.article .t_goods .content {
+    padding-left: 28rpx;
+    width: 354rpx;
+    height: 256rpx;
+    position: relative;
+}
+
+.article .t_goods .content .title {
+    font-size: 32rpx;
+    font-weight: 400;
+    color: #333;
+}
+
+.article .t_goods .content .bottom {
+    position: absolute;
+    left: 28rpx;
+    right: 0;
+    bottom: 0;
+}
+
+.article .t_goods .content .bottom .price {
+    font-size: 32rpx;
+    font-weight: 400;
+    color: #0FBB58;
+    margin-right: 8rpx;
+}
+
+.article .t_goods .content .bottom .oldprice {
+    font-size: 24rpx;
+    font-weight: 400;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.article .t_goods .content .bottom .btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 134rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    border-radius: 200rpx;
+    background-color: #0FBB58;
+    font-size: 24rpx;
+    font-weight: 400;
+    text-align: center;
+    color: #fff;
+}
+
+.article .meta {
+    margin: 56rpx 0;
+    font-size: 28rpx;
+}
+
+.article .meta .date {
+  float: right;
+}
+
+.article .hr {
+    width: 112rpx;
+    height: 6rpx;
+    background-color: #000;
+}
+
+.article .from {
+    margin-top: 24rpx;
+    font-size: 48rpx;
+    font-weight: 300;
+}
+
+.article .from .en {
+    font-size: 28rpx;
+    color: #999;
+}
+
+.article .author {
+  margin-top: 40rpx;
+  width: 750rpx;
+  padding: 0;
+  background: #fff;
+  display: flex;
+}
+
+.article .author .avatar {
+  width: 92rpx;
+  height: 92rpx;
+  border-radius: 50%;
+}
+
+.article .author .info {
+  margin-left: 28rpx;
+}
+
+.article .author .info .name {
+  font-size: 28rpx;
+  display: block;
+}
+
+.article .author .info .desc {
+  font-size: 28rpx;
+  color: rgba(0,0,0,.6);
+}
+
+.article .author-desc {
+    margin: 20rpx 0 0 0;
+    font-size: 24rpx;
+    color: rgba(0,0,0,.6);
+}

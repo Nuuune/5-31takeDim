@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="search-bar">
+    <input placeholder="搜索课程名称、作者、资源等" />
+    <text class="btn">搜索</text>
+  </view>
+  <view class="keywords">
+    <view class="keyword">UI</view>
+    <view class="keyword">UX</view>
+    <view class="keyword">插画</view>
+    <view class="keyword">Photoshop</view>
+    <view class="keyword">Sketch</view>
+    <view class="keyword">InDesign</view>
+    <view class="keyword">拍摄剪辑</view>
+    <view class="keyword">影视特效</view>
+    <view class="keyword">风光摄影</view>
+  </view>
+  <view class="history">
+    <view class="head">
+      历史搜索
+      <text class="fa fa-trash"></text>
+    </view>
+    <view class="categories">
+      <view class="cell">UI视觉设计</view>
+      <view class="cell">商业摄影</view>
+      <view class="cell">CAD</view>
+    </view>
+  </view>
+</view>

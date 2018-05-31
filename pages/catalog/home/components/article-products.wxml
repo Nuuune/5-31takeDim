@@ -1,0 +1,29 @@
+<template name="echome-article-product">
+  <view class="block article-product">
+    <navigator url="../../cms/article/index?articleId={{article.data.id}}" class="article">
+      <image src="{{article.data.image}}?imageMogr2/auto-orient/thumbnail/!686x484r/gravity/Center/crop/686x484|imageView2/1/format/jpg/interlace/0/q/100"></image>
+      <view class="mask">
+        <text class="tag">{{article.data.label}}</text>
+        <text class="title ellipsis">{{article.data.title}}</text>
+        <text wx:if="{{article.data.content}}" class="subtitle ellipsis">{{article.data.content}}</text>
+      </view>
+    </navigator>
+    <scroll-view scroll-x class="products">
+      <navigator class="product" wx:for="{{article.data.products}}" wx:key="{{article_id}} "url="../product/index?productId={{item.id}}">
+        <image src="{{item.image}}?imageMogr2/auto-orient/thumbnail/!216x216r/gravity/Center/crop/216x216|imageView2/1/format/jpg/interlace/0/q/100"></image>
+        <view class="title ellipsis">
+          {{item.title}}
+        </view>
+        <view class="price">¥{{item.price}}</view>
+      </navigator>
+    </scroll-view>
+  </view>
+</template>
+
+<template name="echome-articles">
+  <view class="block articles">
+    <view class="article-product" wx:for="{{articles}}" wx:key="{{article_id}}">
+      <template is="echome-article" data="{{item}}"></template>
+    </view>
+  </view>
+</template>

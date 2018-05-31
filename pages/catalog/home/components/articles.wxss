@@ -1,0 +1,93 @@
+/**
+ * Block Banners
+ */
+.block.article-product {
+  padding: 0 36rpx 36rpx 36rpx;
+}
+
+.block.article-product .article {
+  border-radius: 8rpx;
+  overflow: hidden;
+  position: relative;
+  width: 686rpx;
+  height: 464rpx;
+  display: block;
+}
+
+.block.article-product .article image {
+  width: 686rpx;
+  height: 464rpx;
+}
+
+.block.article-product .article .mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 298rpx;
+  padding: 12rpx 24rpx;
+  border-radius: 0 0 8rpx 8rpx;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000000);
+}
+
+.block.article-product .article .mask .tag {
+  background: #0FBB58;
+  display: inline-block;
+  font-size: 20rpx;
+  font-weight: bold;
+  border-radius: 4rpx;
+  padding: 4rpx 10rpx;
+  color: rgba(255,255,255,0.85);
+}
+
+.block.article-product .article .mask .title {
+  color: #fff;
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 12rpx;
+}
+
+.block.article-product .article .mask .subtitle {
+  color: #fff;
+  display: block;
+  font-size: 20rpx;
+  font-weight: 300;
+  margin-top: 8rpx;
+}
+
+.block.article-product .products {
+  width: 100%;
+  height: 298rpx;
+  padding: 32rpx 0 96rpx 0;
+  display: flex;
+  white-space: nowrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.block.article-product .products .product {
+  width: 216rpx;
+  margin-right: 16rpx;
+  display: inline-block;
+}
+
+.block.article-product .products .product image {
+  width: 216rpx;
+  height: 216rpx;
+}
+
+.block.article-product .products .product .title {
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #333;
+  margin-top: 6rpx;
+}
+
+.block.article-product .products .product .price {
+  font-size: 24rpx;
+  color: #0FBB58;
+  text-align: center;
+  margin-top: 6rpx;
+}

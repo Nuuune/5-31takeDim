@@ -1,0 +1,44 @@
+<!-- 动态发布 -->
+<view class="container">
+  <scroll-view scroll-y>
+    <!-- 动态标题、内容 -->
+    <view class="form-group">
+      <input placeholder="在此输入随笔标题，可不填写" placeholder-class="input-placeholder" bindinput="onTitleInput" />
+
+      <textarea placeholder="请输入内容..." placeholder-class="textarea-placeholder" bindinput="onContentInput"></textarea>
+    </view>
+    <!-- END：动态标题、内容 -->
+
+    <!-- 动态图片 -->
+    <view class="images">
+      <view class="image" wx:for="{{uploadedImages}}" wx:for-item="image" wx:for-index="idx" wx:key="">
+        <image src="{{image + '?x-oss-process=style/thumbnail'}}"></image>
+
+        <text class="fa fa-remove icon-remove" data-index-id="{{idx}}" catchtap="onDeleteImageTap" data-image="{{image}}"></text>
+      </view>
+      <view wx:if="{{showAddImageButton}}" class="add image" catchtap="onAddImageTap"><text class="fa fa-plus"></text></view>
+    </view>
+    <!-- END: 动态图片 -->
+
+    <!-- 位置 -->
+    <view class="location">
+      <view class="picker">
+        <text catchtap="onChooseLocationTap" class="ico-loc fa fa-location-arrow"></text>
+
+        <text catchtap="onChooseLocationTap" wx:if="{{locName}}">{{locName}}</text>
+        <text catchtap="onChooseLocationTap" wx:else>你在哪儿？</text>
+
+        <view wx:if="{{locName}}" class="remove" catchtap="onRemoveLocationTap">
+          <text class="fa fa-remove ico-remove"></text>
+        </view>
+      </view>
+    </view>
+    <!-- END: 位置 -->
+  </scroll-view>
+
+  <!-- Post 底部导航 -->
+  <view class="nav-bottom">
+    <button catchtap="onPostTap" class="button danger block {{formValid == true ? '' : 'disabled1'}}">发随笔</button>
+  </view>
+  <!-- END: Post 底部导航 -->
+</view>

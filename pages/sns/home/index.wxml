@@ -1,0 +1,66 @@
+<import src="../../../assets/styles/components/tab/index.wxml" />
+<import src="../../../assets/styles/components/toptips/index.wxml" />
+
+<!--index.wxml-->
+<view wx:if="{{feeds}}" class="{{containerClass}}">
+  <view class="main-nav">
+    <!-- 顶部导航 -->
+    <view class="search-bar">
+      <navigator class="input" url="../../search/index">
+        <text class="ico-search fa fa-search"></text>
+        <text>搜索</text>
+      </navigator>
+
+      <view catchtap="onPostFeedTap" class="post-feed"><text class="ico-camera fa fa-camera"></text></view>
+    </view>
+    <!-- END：顶部导航 -->
+
+    <!-- Tab导航 -->
+    <template is="tab" data="{{tab: tabData}}"></template>
+    <!-- END：Tab导航 -->
+  </view>
+
+  <!-- 轮播图 -->
+  <block wx:if="{{banners}}">
+    <import src="components/banners.wxml"/>
+    <template is="sns-banners" data="{{banners, current: swiperCurrent}}"></template>
+  </block>
+  <!-- END：轮播图 -->
+
+  <!-- 图标导航 -->
+  <view wx:if="{{selectedTab == 'SNS_TAB_RECOMMEND'}}" class="nav-group">
+    <navigator class="icon-nav">
+      <image src="/images/sns/featured.png"></image>
+      <text class="title">达人</text>
+    </navigator>
+    <navigator url="/pages/sns/topic/list/index" class="icon-nav">
+      <image src="/images/sns/topics.png"></image>
+      <text class="title">话题</text>
+    </navigator>
+    <navigator url="/pages/sns/channel/list/index" class="icon-nav">
+      <image src="/images/sns/channels.png"></image>
+      <text class="title">频道</text>
+    </navigator>
+    <navigator class="icon-nav">
+      <image src="/images/sns/events.png"></image>
+      <text class="title">活动</text>
+    </navigator>
+  </view>
+  <!-- 图标导航 -->
+
+  <!-- 动态列表 -->
+  <import src="../common/feedList.wxml" />
+  <template is="feedList" data="{{feeds: feeds}}"></template>
+  <!-- END：动态列表 -->
+
+  <view class="has-more" wx:if="{{hasMore}}">
+    加载更多...
+  </view>
+  <view class="no-more" wx:else>
+    没有更多了
+  </view>
+
+</view>
+
+
+<template is="zan-toptips" data="{{ zanTopTips }}"></template>

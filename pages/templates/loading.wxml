@@ -1,0 +1,11 @@
+<view wx:if="{{showLoading}}" class="container loading">
+  <view class="animation">
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+  </view>
+
+  <view class="text">加载中。。。</view>
+</view>

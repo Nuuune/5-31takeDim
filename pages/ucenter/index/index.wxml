@@ -1,0 +1,63 @@
+<!-- 用户中心 -->
+<view class="myaccount container">
+  <!-- 用户信息 -->
+  <view class="customer-info">
+    <image class="avatar" src="{{avatar}}"></image>
+    <view class="nickname">
+      {{nickname}} <text class="tag">白丁</text>
+    </view>
+    <view class="btn-group">
+      <navigator url="../login/index" class="button small danger" wx:if="{{isLogin==false}}">立即登录</navigator>
+    </view>
+  </view>
+  <!-- END: 用户信息 -->
+
+  <!-- 订单状态 -->
+  <view class="nav-orders">
+    <view class="wrapper">
+      <view class="item">
+        <text class="fa fa-truck"></text>已购买
+      </view>
+      <view class="item">
+        <text class="fa fa-bookmark"></text>待确认
+      </view>
+      <view class="item">
+        <text class="fa fa-rmb"></text>退款
+      </view>
+      <view class="item">
+        <text class="fa fa-file-text"></text>全部订单
+      </view>
+    </view>
+  </view>
+  <!-- END：订单状态 -->
+
+  <!-- 用户关联 -->
+  <view class="nav-category">
+    <view catchtap="onShoppingCartTap" class="cell">
+      已购内容
+      <text class="ico fa fa-angle-right"></text>
+    </view>
+    <view class="cell">
+      红包
+      <text class="ico fa fa-angle-right"></text>
+    </view>
+    <view class="cell">
+      活动
+      <text class="ico fa fa-angle-right"></text>
+    </view>
+  </view>
+  <!-- END: 用户关联 -->
+
+  <!-- 系统设置 -->
+  <view class="nav-category tm">
+    <view class="cell">
+      联系客服
+      <text class="ico fa fa-angle-right"></text>
+    </view>
+    <view class="cell">
+      设置
+      <text class="ico fa fa-angle-right"></text>
+    </view>
+  </view>
+  <!-- END：系统设置 -->
+</view>

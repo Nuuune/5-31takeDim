@@ -1,0 +1,43 @@
+<view wx:if="{{cartContents}}" class="container">
+  <scroll-view scroll-y>
+    <!-- Cart Content -->
+    <view class="block cart-item" wx:for="{{cartContents}}" wx:for-item="seller" data-seller-id="{{seller.sellerId}}" wx:key="{{id}}">
+      <!-- 卖家信息 -->
+      <view class="seller">
+        <text bindtap="onSellerCheckTap" data-seller-id="{{seller.sellerId}}" class="fa {{seller.checked ? 'fa-check-circle':'fa-circle-thin'}}" />
+        <image src="{{seller.avatar}}?imageMogr2/auto-orient/thumbnail/!56x56r/gravity/Center/crop/56x56|imageView2/1/format/jpg/interlace/0/q/100" mode="widthFix" />
+        <text>{{seller.name}}</text>
+      </view>
+      <!-- END：卖家信息 -->
+
+      <!-- 商品列表 -->
+      <view class="products">
+        <view class="product" wx:for="{{seller.products}}" wx:for-item="product" wx:key="{{pid}}">
+          <text bindtap="onProductCheckTap" data-seller-id="{{seller.sellerId}}" data-product-id="{{product.productId}}" class="fa {{product.checked ? 'fa-check-circle':'fa-circle-thin'}}" />
+          <image src="{{product.image}}?imageMogr2/auto-orient/thumbnail/!400x400r/gravity/Center/crop/400x400|imageView2/1/format/jpg/interlace/0/q/100" mode="widthFix" />
+    
+          <view class="content">
+            <text class="product-name">{{product.name}}</text>
+            <view class="price">
+              <text wx:if="{{product.originalPrice > 0}}" class="original">原价：¥{{product.originalPrice}}</text>
+              <text class="current">¥{{product.price}}</text>
+            </view>
+            <view class="quantity">
+              <button class="button round" data-seller-id="{{seller.sellerId}}" data-product-id="{{product.productId}}" bindtap="onMinus">-</button>
+              {{product.quantity}}
+              <button class="button round danger" data-seller-id="{{seller.sellerId}}" data-product-id="{{product.productId}}" bindtap="onPlus">+</button>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- END：商品列表 -->
+    </view>
+  </scroll-view>
+
+  <!-- 底部导航 -->
+  <view class="nav-bottom">
+    合计：<text class="total">¥{{orderTotal}}</text>
+    <button class="button small danger" catchtap="onCheckoutTap">立即购买</button>
+  </view>
+  <!-- END: 底部导航 -->
+</view>

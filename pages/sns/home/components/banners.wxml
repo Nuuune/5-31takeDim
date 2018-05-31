@@ -1,0 +1,34 @@
+<template name="sns-banners">
+  <view class="block banners">
+    <!-- BEGIN: head -->
+    <view class="head">
+      <text class="title">精彩看点</text>
+      <text class="subtitle">微醺时来这里寻找相似的灵魂</text>
+      <view class="pagination">
+        <text class="position">{{current}}</text><text class="total"> / {{banners.length}}</text>
+      </view>
+    </view>
+    <!-- END: head -->
+
+    <!-- BEGIN: body -->
+    <view class="body">
+      <!-- BEGIN: swiper -->
+      <swiper bindchange="onSwiperChange">
+        <block wx:for="{{banners}}" wx:for-item="banner" wx:for-index="idx" wx:key="id">
+          <swiper-item>
+            <view catchtap="onBannerTap" data-banner-idx="{{idx}}" class="banner">
+              <image src="{{banner.image}}?imageMogr2/auto-orient/thumbnail/!686x464r/gravity/Center/crop/686x464|imageView2/1/format/jpg/interlace/0/q/100"></image>
+              <view class="mask">
+                <text class="tag">{{banner.label}}</text>
+                <text class="title ellipsis">{{banner.title}}</text>
+                <text wx:if="{{banner.content}}" class="subtitle ellipsis">{{banner.content}}</text>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+      <!-- END: swiper -->
+    </view>
+    <!-- END: body -->
+  </view>
+</template>

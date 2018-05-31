@@ -1,0 +1,141 @@
+<view wx:if="{{feed}}" class="container">
+  <scroll-view scroll-y>
+
+    <view class="feed">
+      <!-- 作者 -->
+      <view class="author" catchtap="onUserTap" data-user-id="{{feed.user.id}}">
+        <image class="avatar" src="{{feed.user.avatar}}?x-oss-process=style/avatar" />
+        <view class="info">
+          <text class="name">{{feed.user.nickname}}</text>
+          <text class="date-created">{{feed.prettyDateCreated}}</text>
+        </view>
+        <button catchtap="onFollowTap" data-user-id="{{feed.user.id}}" data-follow-status="{{feed.user.subscribe}}" class="button {{feed.user.subscribe == 1 ? 'followed' : 'follow'}}">
+          <block wx:if="{{feed.user.subscribe == 1}}">已关注</block>
+          <block wx:if="{{feed.user.subscribe == 0}}">关注</block>
+        </button>
+      </view>
+      <!-- END: 作者 -->
+
+      <!-- 动态标题 -->
+      <view class="title">{{feed.title}}</view>
+      <!-- END：动态标题 -->
+
+      <!-- 动态内容 -->
+      <view wx:if="{{feed.content.length > 0}}" class="content">
+        <block wx:for="{{feed.content}}" wx:for-item="text" wx:key="text.id"> 
+
+          <!-- 正常文字 -->
+          <block wx:if="{{text.type == 'text'}}">
+            {{text.content}}
+          </block>
+          <!-- 话题 -->
+          <block wx:else>
+            <text data-topic-id="{{text.id}}" catchtap="onTopicTap" class="topic">{{text.content}}</text>
+          </block>
+        </block>
+      </view>
+      <view wx:else class="content">{{feed.content}}</view>
+      <!-- END:动态内容 -->
+
+      <!-- 动态图片 -->
+      <view class="images">
+        <image wx:for="{{feed.images}}" catchtap="onImageTap" data-img-idx="{{imgIdx}}" wx:for-index="imgIdx" wx:for-item="image" wx:key="" src="{{image + '?x-oss-process=style/thumbnail'}}"lazy-load="true" />
+      </view>
+      <!-- END：动态图片 -->
+
+      <!-- 动态发布位置 -->
+      <view wx:if="{{feed.showLocation && feed.location}}" class="location">
+        <text class="ico-location fa fa-map-marker"></text>{{feed.location}}
+      </view>
+      <!-- END：动态发布位置 -->
+
+      <!-- 动态点赞列表 -->
+      <view class="digg-users">
+        <view class="exposure-count">{{feed.exposureCount}} 浏览</view>
+        <view class="digg-count">{{feed.diggCount}} 赞</view>
+
+        <view class="avatars">
+          <image wx:for="{{feed.diggUsers}}" wx:for-item="diggUser" wx:key="" src="{{diggUser.avatar}}?x-oss-process=style/avatar"></image>
+        </view>
+
+        <text wx:if="{{feed.diggUsers.length > 6}}" catchtap="onDigUsersMoreTap" class="fa fa-chevron-right"></text>
+      </view>
+      <!-- END：动态点赞列表 -->    
+    </view>
+
+    <!-- 动态评论模块 -->
+    <view class="comments">
+      <!-- 动态评论 -->
+      <view class="title">全部评论</view>
+      <!-- 动态评论 -->
+
+      <view wx:for="{{feed.comments}}" wx:for-item="comment" wx:key="" class="comment">
+        <view class="author">
+          <image class="avatar" src="{{comment.comment.user.avatar}}?x-oss-process=style/avatar" />
+          <view class="info">
+            <text class="name">{{comment.comment.user.nickname}}</text>
+            <text class="date-created">{{comment.comment.prettyDateCreated}}</text>
+          </view>
+          <text data-feed-id="{{feed.id}}" data-comment-id="{{comment.comment.id}}" catchtap="onReCommentTap" class="fa fa-comment-o"></text>
+        </view>
+        <view class="content">
+          {{comment.comment.content}}
+        </view>
+        
+        <view wx:if="{{comment.toComment}}" class="tocomment">
+          <view class="user">
+            <image class="xs avatar" src="{{comment.toComment.user.avatar}}?x-oss-process=style/avatar" />
+            {{comment.toComment.user.nickname}}: 
+          </view>
+          <view class="content">
+            {{comment.toComment.content}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- END：动态评论模块 -->
+  </scroll-view>
+
+  <!-- Bottom Nav -->
+  <view class="nav-bottom">
+    <input 
+      placeholder="我也有话说呢..." 
+      placeholder-class="placeholder" 
+      bindinput="onCommentInput" 
+      value="{{comment}}"
+      cursor-spacing="10" 
+      focus="{{focus}}"
+      bindblur="onCommentInputBlur"
+      bindfocus="onCommentInputFocus">
+    </input>
+    <button catchtap="onSubmitTap" wx:if="{{inputFocus}}" data-feed-id="{{feed.id}}" class="button small submit">
+      提交
+    </button>
+    <button wx:if="{{!inputFocus}}" data-feed-id="{{feed.id}}" data-digged="{{feed.digged}}" class="ico-btn" catchtap="onToogleFeedDiggTap">
+      <text class="fa {{feed.digged ? 'fa-heart' : 'fa-heart-o'}}"></text>
+    </button>
+    <button wx:if="{{!inputFocus}}" class="ico-btn" open-type="share">
+      <text class="fa fa-share-square-o"></text>
+    </button>
+  </view>
+  <!-- END: Bottom Nav -->
+
+  <!-- Images Dialog -->
+  <view class="dialog {{ showDialog ? 'show' : '' }}">
+    <view class="dialog container">
+      <view class="topbar">
+        {{swiperSlidePosition}}/{{swiperSlideTotal}}
+        <text catchtap="onDialogClose" class="ico-close fa fa-close"></text>  
+      </view>
+      
+      <!-- BEGIN: swiper -->
+      <swiper class="feed-image-swiper" current="{{swiperCurrent}}" indicator-dots="{{true}}" indicator-color="{{rgba(255,255,255,0.3)}}" indicator-active-color="{{rgba(255,255,255,1)}}" bindchange="onSwiperChange">
+        <swiper-item wx:for="{{swiperImages}}" wx:for-item="swiperImage" wx:key="{{banners_id}}">
+          <image src="{{swiperImage}}" mode="aspectFill" />
+        </swiper-item>
+      </swiper>
+      <!-- BEGIN: swiper -->
+    </view>
+  </view>
+  <!-- END: Images Dialog -->
+</view>

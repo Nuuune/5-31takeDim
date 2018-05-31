@@ -1,0 +1,63 @@
+<!--index.wxml-->
+<view wx:if="{{homeData}}" class="container">
+  <block wx:for="{{homeData}}" wx:key="">
+    <!-- Search -->
+    <navigator url="../search/index" class="search" wx:if="{{item.type=='search'}}">
+      <text wx:if="{{item.data}}">{{item.data}}</text>
+      <text wx:else>请输入关键字、作者等</text>
+      <text class="fa fa-search"></text>
+    </navigator>
+
+    <!-- Banner -->
+    <block  wx:if="{{item.type=='banner'}}">
+      <import src="components/banners.wxml"/>
+      <template is="echome-banners" data="{{banners: item.data, current: swiperCurrent}}"></template>
+    </block>
+
+    <!-- Menu -->
+    <view  wx:if="{{item.type=='menu'}}" class="nav-group">
+      <navigator class="icon-nav">
+        <image src="/images/sns/featured.png"></image>
+        <text class="title">教程</text>
+      </navigator>
+      <navigator url="/pages/sns/topic/list/index" class="icon-nav">
+        <image src="/images/sns/topics.png"></image>
+        <text class="title">进阶</text>
+      </navigator>
+      <navigator url="/pages/sns/channel/list/index" class="icon-nav">
+        <image src="/images/sns/channels.png"></image>
+        <text class="title">签到</text>
+      </navigator>
+      <navigator class="icon-nav">
+        <image src="/images/sns/events.png"></image>
+        <text class="title">付费咨询</text>
+      </navigator>
+    </view>
+  </block>
+
+
+  <!-- 热门推荐 -->
+  <import src="components/featured.wxml"/>
+  <template is="echome-featured" data="{{articles: featured}}"></template>
+
+  <!-- 精选专题 -->
+  <import src="components/hots.wxml"/>
+  <template is="echome-hots" data="{{articles: hots}}"></template>
+
+  <!-- 热门作者 -->
+  <import src="components/authors.wxml"/>
+  <template is="echome-authors" data="{{authors: authors}}"></template>
+
+
+  <!-- 热门话题 -->
+  <import src="components/topics.wxml"/>
+  <template is="echome-topics" data="{{topics: topics}}"></template>
+
+
+  <!-- 最新教程 -->
+  <import src="components/latest.wxml"/>
+  <template is="echome-latest" data="{{articles: latest}}"></template>
+
+</view>
+<include src="../../templates/loading.wxml" />
+<include src="../../templates/error.wxml" />

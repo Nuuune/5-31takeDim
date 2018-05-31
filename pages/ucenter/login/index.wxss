@@ -1,0 +1,16 @@
+/* pages/account/login/index.wxss */
+
+.container {
+  height: 100%;
+  padding: 0 90rpx;
+  background: #fff;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .ico-mobile {
+  font-size: 48rpx;
+}

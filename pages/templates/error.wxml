@@ -1,0 +1,4 @@
+<view wx:if="{{showError}}" catchtap="onRefresh" class="container error">
+  <text style="display: inline-block; font-size: 64rpx; font-color: #666; margin-bottom: 16rpx" class="fa fa-refresh"></text>
+  加载失败，点击重新加载 ...
+</view>

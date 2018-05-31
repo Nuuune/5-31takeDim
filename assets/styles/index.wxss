@@ -1,0 +1,80 @@
+
+@import "components/badge/index.wxss";
+@import "components/button/index.wxss";
+@import "components/dialog/index.wxss";
+@import "components/tab/index.wxss";
+@import "components/quantity/index.wxss";
+@import "components/toptips/index.wxss";
+
+scroll-view {
+  height: calc(100%)
+}
+
+.container.loading, .container.error {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container .animation {
+    width: 80px;
+    height: 40rpx;
+    margin: 0 auto;
+    margin-top:100rpx;
+    display: block;
+}
+.container .animation text {
+    display: inline-block;
+    width: 16rpx;
+    margin-left: 12rpx;
+    height: 100%;
+    border-radius: 4px;
+    background: lightgreen;
+    animation: loading 1s ease infinite;
+}
+
+.container .text {
+  display: block;
+  width: 100%;
+  margin: 40rpx 0;
+
+  font-size: 24rpx;
+  text-align: center;  
+}
+
+@keyframes loading {
+    0%,100%{
+        height: 40rpx;
+        background: lightgreen;
+    }
+    50%{
+        height: 70rpx;
+        margin-top: -15rpx;
+        margin-bottom: -15rpx;
+        background: lightgreen;
+    }
+}
+.loading text:nth-child(2){
+    animation-delay:0.2s;
+}
+.loading text:nth-child(3){
+    animation-delay:0.4s;
+}
+.loading text:nth-child(4){
+    animation-delay:0.6s;
+}
+.loading text:nth-child(5){
+    animation-delay:0.8s;
+}
+
+
+.ellipsis {
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+    overflow: hidden;
+}

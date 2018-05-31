@@ -1,0 +1,76 @@
+<template name="feedList">
+  <!-- 动态列表 -->
+  <view class="feeds">
+    <view class="feed" wx:for="{{feeds}}" wx:for-item="feed" wx:key="">
+      
+      <!-- 用户 -->
+      <view wx:if="{{feed.user}}" catchtap="onFeedUserTap" data-user-id="{{feed.user.id}}" class="user">
+        <image src="{{feed.user.avatar}}?x-oss-process=style/avatar" />
+        <view class="info">
+          <text class="nickname">{{feed.user.nickname}}</text>
+          <text class="date-created">{{feed.formattedDateCreated}}</text>
+        </view>
+        <button data-user-id="{{feed.user.id}}" data-follow-status="{{feed.user.subscribe}}" catchtap="onFollowTap" class="button {{feed.user.subscribe == 1 ? 'followed' : 'follow'}}">
+          <block wx:if="{{feed.user.subscribe == 1}}">已关注</block>
+          <block wx:else>关注</block>
+        </button>
+      </view>
+      <!-- END：用户 -->
+
+      <view data-feed-id="{{feed.id}}" catchtap="onFeedTap" class="content">
+        <!-- 动态标题 -->
+        <view wx:if="{{feed.title}}" class="title">{{feed.title}}</view>
+
+        <!-- 动态内容 -->
+        <view wx:if="{{feed.content.length > 0}}" class="body">
+          <block wx:for="{{feed.content}}" wx:for-item="text" wx:key="text.id"> 
+
+            <!-- 正常文字 -->
+            <block wx:if="{{text.type == 'text'}}">
+              {{text.content}}
+            </block>
+            <!-- 话题 -->
+            <block wx:else>
+              <text data-topic-id="{{text.id}}" catchtap="onTopicTap" class="topic">{{text.content}}</text>
+            </block>
+          </block>
+        </view>
+        <view wx:else>{{feed.content}}</view>
+        <!-- END:动态内容 -->
+
+        <!-- 单图 -->
+        <view wx:if="{{feed.images.length == 1}}" class="single-image">
+          <image src="{{feed.images[0]}}?x-oss-process=style/thumbnail" />
+        </view>
+        <!-- END：单图 -->
+
+        <!-- 多图 -->
+        <view wx:elif="{{feed.images.length>1}}" class="images">
+          <view data-feed-id="{{feed.id}}" wx:for="{{feed.images}}" data-img-idx="{{imgIdx}}" wx:for-index="imgIdx" wx:for-item="image" wx:key="" class="image">
+            <image src="{{image}}?x-oss-process=style/thumbnail" />
+          </view>
+        </view>
+        <block wx:else></block>
+        <!-- END: 多图 -->
+
+        <!-- 动态发布位置 -->
+        <view wx:if="{{feed.showLocation && feed.location}}" class="location">
+          <text class="ico-location fa fa-map-marker"></text>{{feed.location}}
+        </view>
+        <!-- END：动态发布位置 -->
+      </view>
+
+        <!-- 按钮组 -->
+      <view class="btn-group">
+        <text data-feed-id="{{feed.id}}" data-digged="{{feed.digged}}" catchtap="onToogleFeedDiggTap" class="btn">
+          <text class="fa {{feed.digged === true ? 'fa-heart' : 'fa-heart-o'}}"></text>{{feed.diggCount}}
+        </text>
+        <text class="btn">
+          <text class="fa fa-comment-o"></text>{{feed.commentCount}}
+        </text>
+      </view>
+        <!-- END：按钮组 -->
+    </view>
+  <!-- END：动态列表 -->
+  </view>
+</template>

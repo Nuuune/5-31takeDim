@@ -1,0 +1,41 @@
+<template name="echome-auctions">
+  <view class="block auctions top-b">
+    <!-- BEGIN: head -->
+    <view class="head">
+      <text class="title">限时闪购</text>
+      <text class="subtitle">{{auctions.title}}</text>
+      <view class="more">
+        查看更多
+      </view>
+    </view>
+    <!-- END: head -->
+
+    <!-- BEGIN: body -->
+    <view class="body">
+      <swiper>
+        <block wx:for="{{auctions.data}}" wx:key="{{banners_id}}">
+          <swiper-item>
+            <view class="auction">
+              <image src="{{item.product.image}}?imageMogr2/auto-orient/thumbnail/!600x600r/gravity/Center/crop/600x600|imageView2/1/format/jpg/interlace/0/q/100"></image>
+              <view class="content">
+                <text class="title ellipsis">{{item.title}}</text>
+                <text class="label-time-left">距离结束</text>
+                <view class="time-left-box">
+                  <view class="box">00</view>
+                  :
+                  <view class="box">00</view>
+                  :
+                  <view class="box">00</view>
+                </view>
+                <view class="price">
+                  <text class="current">¥{{item.product.price}}</text>
+                  <text class="original">¥{{item.product.originalPrice}}</text>
+                </view>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+</template>

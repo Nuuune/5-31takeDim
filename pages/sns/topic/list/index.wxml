@@ -1,0 +1,13 @@
+<view wx:if="{{topicList}}" class="container">
+  <view class="topic-list">
+  	<navigator url="/pages/sns/topic/info/index?topicId={{topic.id}}" class="topic" wx:for="{{topicList}}" wx:for-item="topic" wx:key="">
+        <image src="{{topic.coverImage}}?x-oss-process=style/thumb-sns-topic-list" />
+
+        <view class="content">
+        	<text class="name">{{topic.name}}</text>
+        	<text class="desc">{{topic.introductionJson}}</text>
+        	<text class="num-of-feeds">{{topic.feedCount}}条动态</text>
+        </view>
+  	</navigator>
+  </view>
+</view>

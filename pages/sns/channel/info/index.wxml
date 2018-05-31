@@ -1,0 +1,38 @@
+<view wx:if="{{channelInfo}}" class="container">
+  <!-- 频道详情 -->
+  <scroll-view scroll-y>
+    <view class="cover-wrapper">
+      <image class="bg" src="{{channelInfo.coverImage}}?x-oss-process=style/cover-4-3"></image>
+      <view class="mask"></view>
+
+      <view class="front-wrapper"><image class="front" src="{{channelInfo.coverImage}}?x-oss-process=style/cover-4-3"></image></view>
+
+      <view class="title">#频道：{{channelInfo.name}}</view>
+      <view class="summary">
+        {{channelInfo.feedCount}}条评论 <text> </text> {{channelInfo.followCount}}条订阅
+      </view>
+
+      <button catchtap="onSubmitTap"class="button follow">
+        关注
+      </button>
+    </view>
+    <view class="intro">
+      {{channelInfo.introduction}}
+    </view>
+
+    <!-- 动态列表 -->
+    <import src="../../common/feedList.wxml" />
+    <template is="feedList" data="{{feeds: channelInfo.feeds}}"></template>
+    <!-- END：动态列表 -->    
+  </scroll-view>
+  <!-- END: 频道详情 -->
+
+  <!-- Bottom Nav -->
+  <view class="nav-bottom">
+    <button catchtap="onPostFeedTap"class="button small submit">
+      发帖
+    </button>
+  </view>
+  <!-- END: Bottom Nav -->
+
+</view>

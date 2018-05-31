@@ -1,0 +1,18 @@
+<template name="echome-hots">
+  <view class="block hots">
+    <view class="head">
+      <text class="title">专题精选</text>
+      <text class="sub-title">专题收录，系统化学习设计课程</text>
+    </view>
+
+    <scroll-view scroll-x style="width: 714rpx">
+      <view wx:for="{{articles}}" wx:key="{{article_id}}" class="article">
+        <navigator>
+          <image src="{{item.image}}?x-oss-process=style/516x350"></image>
+          <text class="title">{{item.title}}</text>
+          <text class="price">{{item.price}} <text class="market-price">{{item.mprice}}</text></text>
+        </navigator>
+      </view>
+    </scroll-view>
+  </view>
+</template>

@@ -1,0 +1,44 @@
+/**
+ * Block Component
+ */
+.block {
+  padding: 18px;
+  position: relative;
+}
+
+.block .head {
+  position: relative;
+}
+
+.block .head .title {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.1px;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.block .head .subtitle {
+  margin-top: 8px;
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.1px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.block .head .more {
+  position: absolute;
+  top: 24rpx;
+  right: 0;
+
+  font-size: 11px;
+  color: #0FBB58;
+}
+
+.block.top-b:before {
+  display: none;
+  content: "";
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}

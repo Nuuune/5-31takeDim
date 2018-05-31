@@ -1,0 +1,102 @@
+/**
+ * Block Banners
+ */
+.block.banners {
+  padding: 0;
+}
+
+.block.banners .head {
+  padding: 0;
+  margin: 36rpx 36rpx 0 36rpx;
+}
+
+/**
+ * Banner Pagination
+ */
+.block.banners .head .pagination {
+  position: absolute;
+  top: 15rpx;
+  right: 0;
+}
+
+.block.banners .head .pagination .position {
+  font-size: 48rpx;
+  font-weight: bold;
+}
+
+.block.banners .head .pagination .total {
+  font-size: 24rpx;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/**
+ * Banner Body
+ */
+.block.banners .body {
+  width: 100%;
+  height: 540rpx;
+}
+
+/**
+ *Banner Body Swiper Size
+ */
+.block.banners .body swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.block.banners .body swiper-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block.banners .body .banner {
+  width: 686rpx;
+  height: 466rpx;
+  position: relative;
+  box-shadow: 0 8rpx 32rpx 0 rgba(0, 0, 74, 0.2);
+}
+
+.block.banners .body .banner image {
+  border-radius: 8rpx;
+  width: 686rpx;
+  height: 466rpx;
+}
+
+.block.banners .body .banner .mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 298rpx;
+  padding: 12rpx 24rpx;
+  border-radius: 0 0 8rpx 8rpx;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+  color: rgba(255,255,255,0.85);
+}
+
+.block.banners .body swiper-item .mask .tag {
+  background: #0FBB58;
+  display: inline-block;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 4rpx;
+  padding: 4rpx 10rpx;
+}
+
+.block.banners .body swiper-item .mask .title {
+  color: #fff;
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 16rpx;
+}
+
+.block.banners .body swiper-item .mask .subtitle {
+  color: #fff;
+  display: block;
+  font-size: 10px;
+  font-weight: 300;
+  margin-top: 8rpx;
+}

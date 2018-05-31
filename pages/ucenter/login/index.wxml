@@ -1,0 +1,11 @@
+<!-- Account -->
+<view class="container">
+  <button catchtap="onWxMobileTap" catchtap="onWeppLogin" open-type="1getPhoneNumber" class="button danger block">
+    <text class="ico-wechat fa fa-wechat"></text>
+    微信用户快速登录
+  </button>
+  <navigator url="../smslogin/index" open-type="redirect" class="button block">
+    <text class="ico-mobile fa fa-mobile"></text>
+    手机号验证登录
+  </navigator>
+</view>

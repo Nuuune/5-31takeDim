@@ -1,0 +1,147 @@
+<import src="../../../assets/styles/components/quantity/index.wxml" />
+
+<!--index.wxml-->
+<view wx:if="{{product}}" class="container">
+  <scroll-view scroll-y>
+    <!-- 幻灯片 -->
+    <swiper class="product-swiper" indicator-dots="{{true}}" indicator-color="{{rgba(255,255,255,0.3)}}" indicator-active-color="{{rgba(255,255,255,1)}}">
+      <swiper-item wx:for="{{product.images}}" wx:key="{{banners_id}}">
+        <image src="{{item}}?imageMogr2/auto-orient/thumbnail/!960x960r/gravity/Center/crop/960x960|imageView2/1/format/jpg/interlace/0/q/100" mode="scaleToFill" />
+      </swiper-item>
+    </swiper>
+    <!-- END: 幻灯片 -->
+
+    <!-- 商品名称 -->
+    <view class="content-block">
+      <text class="h1">{{product.productName}}</text>
+      <text class="subtitle">{{product.productEnName}}</text>
+      <view class="price">
+        <text class="current">¥{{product.price}}/{{product.unit}}</text>
+        <text class="original" wx:if="{{product.originalPrice > 0}}">{{product.originalPrice}}/{{product.unit}}</text>
+      </view>
+      <view class="line-sperator"></view>
+      <view class="foot-info">
+        <view class="tags">
+          <text class="fa fa-tag"></text>
+          <text wx:if="{{product.original}}">{{product.original}}</text>
+          <text wx:if="{{product.region}}">{{product.region}}</text>
+          <text wx:if="{{product.label}}">{{product.label}}</text>
+        </view>
+        <view class="sold">
+          已售：{{product.quantityOfSales}}
+        </view>
+      </view>
+    </view>
+    <!-- END: 商品名称 -->
+
+    <!-- 卖家详情 -->
+    <view class="content-block">
+      <view class="seller">
+        <image class="avatar" src="{{product.seller.avatar}}?imageMogr2/auto-orient/thumbnail/!200x200r/gravity/Center/crop/200x200|imageView2/1/format/jpg/interlace/0/q/100" mode="scaleToFill" />
+      
+        <view class="info">
+          <text class="name">{{product.seller.nickName}}</text>
+          <text wx:if="{{product.seller.summary}}" class="desc ellipsis">{{product.seller.summary}}</text>
+        </view>
+      </view>
+      <view class="summary">
+        <view class="sales">
+          <view>
+            <text class="num">{{product.seller.numOfSale}}</text>
+            <text>成交</text>
+          </view>
+        </view>
+        <view>
+          <text class="num">{{product.seller.numOfSelling}}</text>
+          <text>在售</text>
+        </view>
+        <view class="articles">
+          <view>
+            <text class="num">{{product.seller.numOfArticle}}</text>
+            <text>专辑</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- END: 卖家详情 -->
+
+    <!-- 商品描述 -->
+    <view class="content-block">
+      <text class="h3">产品介绍</text>
+      <text class="description">{{product.description}}</text>
+    </view>
+    <!-- END: 商品描述 -->
+
+    <!-- 相关文章 -->
+    <view class="content-block related-articles">
+      <view class="h3">相关文章</view>
+      <scroll-view scroll-x class="articles">
+        <block wx:for="{{product.articleVos}}" wx:for-item="article" wx:key="id">
+          <view class="article">
+            <navigator url="/pages/cms/article/index?articleId={{article.id}}">
+              <image src="{{article.coverImage}}?imageMogr2/auto-orient/thumbnail/!678x460r/gravity/Center/crop/678x460|imageView2/1/format/jpg/interlace/0/q/100" mode="scaleToFill" />
+            </navigator>
+            <view class="mask">
+              <text wx:if="{{article.label}}" class="tag">{{article.label}}</text>
+              <text class="title ellipsis">{{article.title}}</text>
+              <text wx:if="{{article.content}}" class="subtitle ellipsis">{{article.content}}</text>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+    <!-- END: 相关文章 -->
+
+    <!-- 相关商品 -->
+    <view class="content-block related-products">
+      <view class="h3">相关商品</view>
+      <scroll-view scroll-x class="products">
+        <view wx:for="{{product.productVos}}" wx:for-item="relatedProduct" wx:key="productId" class="product">
+          <navigator url="/pages/catalog/product/index?productId={{relatedProduct.productId}}">
+            <image src="{{relatedProduct.pictureName}}?imageMogr2/auto-orient/thumbnail/!300x300r/gravity/Center/crop/300x300|imageView2/1/format/jpg/interlace/0/q/100" mode="scaleToFill" />
+          </navigator>
+          <view class="title ellipsis">{{relatedProduct.productName}}</view>
+          <view class="price">¥{{relatedProduct.price}}</view>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- END: 相关商品 -->
+  </scroll-view>
+
+  <view class="nav-bottom">    
+    <navigator url="/pages/cart/index">
+      <view class="zan-badge cart">
+        <text class="ico-cart fa fa-shopping-cart"></text>
+        <view class="zan-badge__count">{{numberOfProducts}}</view>
+      </view>
+    </navigator>
+    <button class="button small danger" data-add-type="cart" catchtap="toogleDialog">加入购物车</button>
+    <button class="button small black" data-add-type="checkout" catchtap="toogleDialog">立即购买</button>
+  </view>
+
+  <view class="dialog {{ showDialog ? 'show' : '' }}">
+    <view class="dialog mask" bindtap="toogleDialog" />
+    <view class="dialog container">
+      <view class="head">购物车</view>
+      <view class="body">
+        <view class="thumbnail">
+          <image src="{{product.pictureName}}?imageMogr2/auto-orient/thumbnail/!480x480r/gravity/Center/crop/480x480|imageView2/1/format/jpg/interlace/0/q/100" mode="scaleToFill" />
+        </view>
+        <view class="content">
+          <view class="product-name ellipsis">{{product.productName}}</view>
+          <view class="price">
+            <text class="current">¥{{product.price}}/{{product.unit}}</text>
+            <text class="stock">剩余：{{product.stock}}/{{product.unit}}</text>
+          </view>
+          <view class="quantity">
+            <view class="label">选择数量：</view>
+            <template is="zan-quantity" data="{{min: 1, max: product.stock, quantity: addQuantity, componentId: 'addCart' }}" />
+          </view>
+        </view>
+      </view>
+      <view class="foot">
+        <button class="button small danger block" catchtap="onOK">选好了</button>
+      </view>
+    </view>
+  </view>
+</view>

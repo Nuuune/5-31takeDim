@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="heading">关注人数<text class="num">{{users.total}}</text>人</view>
+  <view class="user-list">
+    <view wx:for="{{users.data}}" wx:for-item="user" wx:key="" class="user">
+      <image src="{{user.avatar}}"></image>
+      <view class="info">
+        <text class="nickname">{{user.nickname}}</text>
+        <text wx:if="{{user.introduction}}" class="summary">{{user.introduction}}</text>
+      </view>
+      <button data-user-id="{{user.id}}" catchtap="onFollowTap" class="button follow">关注</button>
+    </view>
+  </view>
+
+</view>

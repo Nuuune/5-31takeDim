@@ -1,0 +1,67 @@
+@import "components/block.wxss";
+@import "components/banners.wxss";
+@import "components/auctions.wxss";
+@import "components/article-products.wxss";
+@import "components/article.wxss";
+@import "components/hots.wxss";
+@import "components/topics.wxss";
+@import "components/authors.wxss";
+@import "components/featured.wxss";
+@import "components/latest.wxss";
+
+.container {
+  background-color: #f5f5f5;
+  flex-direction: column;
+} 
+
+
+.search {
+  padding: 48rpx 36rpx;
+  font-size: 16px;
+  color: rgba(0, 0, 0, .2);
+  line-height: 1;
+  background: #fff;
+}
+
+.search .fa {
+  float: right;
+  color: rgba(0, 0, 0, .6);
+}
+
+.block.articleTitle {
+  padding-bottom: 0;
+}
+
+
+.nav-group {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  padding: 0 36rpx 36rpx 36rpx;
+}
+
+.nav-group .icon-nav {
+  flex: 1;
+  text-align: center;
+}
+
+.nav-group .icon-nav image {
+  width: 56rpx;
+  height: 56rpx;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.nav-group .icon-nav .ico {
+  display: block;
+  text-align:center;
+  font-size: 64rpx;
+  color: #333333;
+} 
+
+.nav-group .icon-nav .title {
+  font-size: 28rpx;
+  text-align: center;
+  color: #333333;
+  display: block;
+} 

@@ -1,0 +1,41 @@
+<!--categories.wxml-->
+<view class="container">
+  <scroll-view scroll-y class="cat-list">
+    <view class="cat selected">鞋靴</view>
+    <view class="cat">上衣</view>
+    <view class="cat">裤子</view>
+    <view class="cat">护理</view>
+    <view class="cat">箱包</view>
+    <view class="cat">配饰</view>
+    <view class="cat">生活</view>
+    <view class="cat">礼品</view>
+    <view class="cat">上衣</view>
+    <view class="cat">裤子</view>
+    <view class="cat">护理</view>
+    <view class="cat">箱包</view>
+    <view class="cat">配饰</view>
+    <view class="cat">生活</view>
+    <view class="cat">礼品</view>
+  </scroll-view>
+  <scroll-view scroll-y class="subcat-list" style="width: {{subCategoriesViewWidth}}rpx">
+    <image class="banner" src="https://static.drwine.cn/images/admin/20170907/c2608fa1f7f7445899d8710d74dd1d9b.png?imageMogr2/auto-orient/thumbnail/!686x464r/gravity/Center/crop/686x464|imageView2/1/format/jpg/interlace/0/q/100" mode="widthFix" />
+
+    <view class="subcats">
+      <view class="cat"><text class="fa fa-truck"></text>鞋靴</view>
+      <view class="cat"><text class="fa fa-truck"></text>上衣</view>
+      <view class="cat"><text class="fa fa-truck"></text>裤子</view>
+      <view class="cat"><text class="fa fa-truck"></text>护理</view>
+      <view class="cat"><text class="fa fa-truck"></text>箱包</view>
+      <view class="cat"><text class="fa fa-truck"></text>配饰</view>
+      <view class="cat"><text class="fa fa-truck"></text>生活</view>
+      <view class="cat"><text class="fa fa-truck"></text>礼品</view>
+      <view class="cat"><text class="fa fa-truck"></text>上衣</view>
+      <view class="cat"><text class="fa fa-truck"></text>裤子</view>
+      <view class="cat"><text class="fa fa-truck"></text>护理</view>
+      <view class="cat"><text class="fa fa-truck"></text>箱包</view>
+      <view class="cat"><text class="fa fa-truck"></text>配饰</view>
+      <view class="cat"><text class="fa fa-truck"></text>生活</view>
+      <view class="cat"><text class="fa fa-truck"></text>礼品</view>
+    </view>
+  </scroll-view>
+</view>

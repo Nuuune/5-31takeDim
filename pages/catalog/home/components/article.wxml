@@ -1,0 +1,32 @@
+<template name="echome-article">
+  <view class="block articles">
+    <navigator url="../../cms/article/index?articleId={{articles[0].id}}" class="main">
+      <image src="{{articles[0].image}}?imageMogr2/auto-orient/thumbnail/!686x484r/gravity/Center/crop/686x484|imageView2/1/format/jpg/interlace/0/q/100"></image>
+      <view class="mask">
+        <text class="tag">{{articles[0].label}}</text>
+        <text class="title ellipsis">{{articles[0].title}}</text>
+        <text wx:if="{{articles[0].content}}" class="subtitle ellipsis">{{articles[0].content}}</text>
+      </view>
+    </navigator>
+
+    <view class="hr"></view>
+    
+    <navigator wx:if="{{articles[1]}}" url="../../cms/article/index?articleId={{articles[1].id}}" class="article">
+      <image src="{{articles[1].image}}?imageMogr2/auto-orient/thumbnail/!624x400r/gravity/Center/crop/624x400|imageView2/1/format/jpg/interlace/0/q/100"></image>
+      <view class="content">
+        <text class="tag">{{articles[1].label}}</text>
+        <text class="title">{{articles[1].title}}</text>
+        <text wx:if="{{articles[1].content}}" class="subtitle ellipsis">{{articles[1].content}}</text>
+      </view>
+    </navigator>
+    
+    <navigator wx:if="{{articles[2]}}" url="../../cms/article/index?articleId={{articles[2].id}}" class="article">
+      <image src="{{articles[2].image}}?imageMogr2/auto-orient/thumbnail/!624x400r/gravity/Center/crop/624x400|imageView2/1/format/jpg/interlace/0/q/100"></image>
+      <view class="content">
+        <text class="tag">{{articles[2].label}}</text>
+        <text class="title">{{articles[2].title}}</text>
+        <text wx:if="{{articles[2].content}}" class="subtitle ellipsis">{{articles[2].content}}</text>
+      </view>
+    </navigator>
+  </view>
+</template>

@@ -1,0 +1,21 @@
+<!-- 用户登录页面 -->
+<view class="container">
+  <image class="logo" src="../../../images/logo.jpg"></image>
+
+  <!-- 登录表单 -->
+  <view class="login-form">
+    <view class="input-group mobile">
+      <text>+86</text><input bindinput="onMobileInput" maxlength="11" placeholder="请输入您的手机号码"></input>
+    </view>
+    <view class="input-group sms">
+      <input bindinput="onVcodeInput" placeholder="请输入短信验证码"></input>
+      <button catchtap="onSendVcodeTap" class="button xs danger">发送验证码</button>
+    </view>
+  </view>
+  <!-- END：登录表单 -->
+
+  <button catchtap="onLoginTap" class="button danger block">
+    登 录
+  </button>
+  <view class="ps">若您输入的手机号未注册，将会进入注册流程。注册即视为同意<text>卖督学服务协议</text></view>
+</view>

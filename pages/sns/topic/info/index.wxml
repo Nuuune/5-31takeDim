@@ -1,0 +1,24 @@
+<view wx:if="{{topic}}" class="container">
+  <!-- BEGIN: Meta-Info -->
+  <view class="meta-info">
+    <image src="{{topic.coverImage}}?x-oss-process=style/cover-4-3" />
+
+    <view class="mask"></view>
+
+    <text class="name">{{topic.name}}</text>
+    <text class="num-of-feed">{{topic.feedCount}}条动态</text>
+  </view>
+  <!-- END: Meta-Info -->
+
+
+  <!-- BEGIN: introduction -->
+  <view class="desc">
+  	{{topic.introductionJson}}
+  </view>
+  <!-- END: introduction -->
+
+  <!-- 动态列表 -->
+  <import src="../../common/feedList.wxml" />
+  <template is="feedList" data="{{feeds: topic.feeds}}"></template>
+  <!-- END：动态列表 -->
+</view>

@@ -1,0 +1,34 @@
+<template name="sns-banners">
+  <view class="block banners">
+    <!-- BEGIN: head -->
+    <view class="head">
+      <text class="title">精彩看点</text>
+      <text class="subtitle">{{banners.title}}</text>
+      <view class="pagination">
+        <text class="position">{{current}}</text><text class="total"> / {{banners.data.length}}</text>
+      </view>
+    </view>
+    <!-- END: head -->
+
+    <!-- BEGIN: body -->
+    <view class="body">
+      <!-- BEGIN: swiper -->
+      <swiper bindchange="onSwiperChange">
+        <block wx:for="{{banners.data}}" wx:key="{{banners_id}}">
+          <swiper-item>
+            <view class="banner">
+              <image src="{{item.image}}?imageMogr2/auto-orient/thumbnail/!686x464r/gravity/Center/crop/686x464|imageView2/1/format/jpg/interlace/0/q/100"></image>
+              <view class="mask">
+                <text class="tag">{{item.label}}</text>
+                <text class="title ellipsis">{{item.title}}</text>
+                <text wx:if="{{item.content}}" class="subtitle ellipsis">{{item.content}}</text>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+      <!-- END: swiper -->
+    </view>
+    <!-- END: body -->
+  </view>
+</template>

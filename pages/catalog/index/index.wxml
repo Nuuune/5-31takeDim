@@ -1,0 +1,73 @@
+<!--index.wxml-->
+<view wx:if="{{homeData}}" class="container">
+  <scroll-view scroll-y class="scroll-view" bindscrolltolower="onLoadMore" bindscrolltoupper="onRefresh">
+    <view wx:if="{{hasRefesh}}" style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;">
+    <div class="loading">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <icon type="waiting" size="45"/><text>刷新中...</text></view>
+    <view wx:else  style="display:none" ><text></text></view>
+
+    <block wx:for="{{homeData}}" wx:key="">
+      <!-- Search -->
+      <navigator url="../search/index" class="search" wx:if="{{item.type=='search'}}">
+        <text wx:if="{{item.data}}">{{item.data}}</text>
+        <text wx:else>请输入酒名、商品等</text>
+        <text class="fa fa-search"></text>
+      </navigator>
+
+      <!-- Banner -->
+      <block  wx:if="{{item.type=='banner'}}">
+        <import src="components/banners.wxml"/>
+        <template is="echome-banners" data="{{banners: item.data, current: swiperCurrent}}"></template>
+      </block>
+
+      <!-- Menu -->
+      <block  wx:if="{{item.type=='menu'}}">
+      </block>
+
+      <!-- Express -->
+      <block  wx:if="{{item.type=='express'}}">
+      </block>
+
+      <!-- Auction -->
+      <block  wx:if="{{item.type=='auction'}}">
+        <import src="components/auctions.wxml"/>
+        <template is="echome-auctions" data="{{auctions: item.data}}"></template>
+      </block>
+
+      <!-- Express -->
+      <block  wx:if="{{item.type=='articleTitle'}}">
+        <view class="block articleTitle">
+          <!-- BEGIN: head -->
+          <view class="head">
+            <text class="title">必败至品</text>
+            <text class="subtitle">{{item.data}}</text>
+          </view>
+        </view>
+      </block>
+
+      <!-- Article Product -->
+      <block  wx:if="{{item.type=='articleProduct'}}">
+        <import src="components/article-products.wxml"/>
+        <template is="echome-article-product" data="{{article:item}}"></template>
+      </block>
+
+      <!-- Article -->
+      <block  wx:if="{{item.type=='article'}}">
+        <import src="components/article.wxml"/>
+        <template is="echome-article" data="{{articles:item.data}}"></template>
+      </block>
+    </block>
+
+    <view class="tips1">
+      <view wx:if="{{hasMore}}" style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;">
+      <icon type="waiting" size="45"/><text>玩命的加载中...</text></view>
+      <view wx:else><text>没有更多内容了</text></view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,67 @@
+{
+  "pages":[
+    "pages/catalog/home/index",
+
+    "pages/sns/home/index",
+    "pages/sns/channel/list/index",
+    "pages/sns/channel/info/index",
+    "pages/sns/user/info/index",
+    "pages/sns/user/followed/index",
+    "pages/sns/user/follower/index",
+    "pages/ucenter/index/index",
+    "pages/ucenter/smslogin/index",
+    "pages/sns/feed/info/index",
+    "pages/sns/feed/post/index",
+    "pages/sns/topic/list/index",
+    "pages/sns/topic/info/index",
+
+    "pages/cart/index",
+    
+    "pages/catalog/product/index",
+
+    "pages/checkout/index",
+    "pages/catalog/category/index",
+    "pages/catalog/search/index",
+    "pages/ucenter/login/index",
+    "pages/cms/article/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Din",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#AAA",
+    "selectedColor": "#0FBB58",
+    "backgroundColor": "#fff",
+    "borderStyle": "#0FBB58",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/catalog/home/index",
+        "text": "首页",
+        "iconPath": "images/community.png",
+        "selectedIconPath": "images/community-active.png"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": "已购内容",
+        "iconPath": "images/shopping-cart.png",
+        "selectedIconPath": "images/shopping-cart-active.png"
+      },
+      {
+        "pagePath": "pages/sns/home/index",
+        "text": "社区",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png"
+      },
+      {
+        "pagePath": "pages/ucenter/index/index",
+        "text": "我的",
+        "iconPath": "images/accounts.png",
+        "selectedIconPath": "images/accounts-active.png"
+      }
+    ]
+  }
+}

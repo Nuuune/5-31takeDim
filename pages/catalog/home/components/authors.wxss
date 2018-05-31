@@ -1,0 +1,101 @@
+.block.authors {
+  background: #fff;
+  margin-top: 24rpx;
+  padding:36rpx 0 16rpx 36rpx;
+}
+
+.block.authors .head .title {
+  display: block;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 48rpx;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.block.authors .head .sub-title {
+  display: block;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 24rpx;
+  margin-top: 16rpx;
+  line-height: 1;
+}
+
+.block.authors scroll-view {
+  margin-top: 40rpx;
+}
+
+.block.authors scroll-view .wrapper {
+  width: 1364rpx;
+  height: 334rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  padding-top: 6rpx;
+  padding-left: 6rpx;
+}
+
+.block.authors scroll-view .author {
+  width: 314rpx;
+  height: 314rpx;
+  margin-right: 24rpx;
+  display: block;
+  padding: 24rpx;
+
+  border-radius: 8rpx;
+   box-shadow: 0 4rpx 20rpx 0 rgba(136, 139, 142, 0.4); 
+}
+
+.block.authors scroll-view .author .meta {
+  display: flex;
+  height: 86rpx;
+}
+
+.block.authors scroll-view .author image {
+  width: 86rpx;
+  height: 86rpx;
+  border-radius: 100%;
+}
+
+.block.authors scroll-view .author .info {
+  padding-left: 18rpx;
+  flex: 1;
+}
+
+.block.authors scroll-view .author .info .name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #000000;
+  display: block;
+}
+
+.block.authors scroll-view .author .info .tag {
+  font-size: 20rpx;
+  font-weight: 600;
+  color: #0FBB58;
+
+  height: 32rpx;
+  line-height: 32rpx;
+  padding: 0 8rpx;
+  border-radius: 4rpx;
+  border: solid 1rpx #0FBB58;
+}
+
+.block.authors scroll-view .author .desc {
+  font-size: 24rpx;
+  line-height: 1.33;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 16rpx 0 32rpx 0;
+  display: block;
+
+overflow:hidden;
+overflow-wrap:break-word;
+white-space:normal;
+height:60rpx;
+
+}
+
+.block.authors scroll-view .author button {
+  width: 100%;
+  display: block;
+}

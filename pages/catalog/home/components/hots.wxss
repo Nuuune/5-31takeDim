@@ -1,0 +1,62 @@
+.block.hots {
+  background: #fff;
+  margin-top: 24rpx;
+  padding:36rpx 0 36rpx 36rpx;
+}
+
+.block.hots .head .title {
+  display: block;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 48rpx;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.block.hots .head .sub-title {
+  display: block;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 24rpx;
+  margin-top: 16rpx;
+  line-height: 1;
+}
+
+.block.hots scroll-view {
+  display: flex;
+  white-space: nowrap;
+  margin-top: 40rpx;
+}
+
+.block.hots scroll-view view {
+  width: 516rpx;
+  margin-right: 24rpx;
+  display: inline-block;
+}
+
+.block.hots scroll-view view image {
+  width: 516rpx;
+  height: 350rpx;
+  border-radius: 8rpx;
+  display: block;
+}
+
+.block.hots scroll-view view .title{  
+  font-size: 32rpx;
+  color: #333333;
+  font-weight: bold;
+  display: block;
+  margin-top: 24rpx;
+  margin-bottom: 4rpx;
+}
+
+.block.hots scroll-view view .price{  
+  font-size: 36rpx;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.block.hots scroll-view view .market-price{  
+  font-size: 26rpx;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: line-through;
+}

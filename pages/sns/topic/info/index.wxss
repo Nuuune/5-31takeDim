@@ -1,0 +1,56 @@
+@import "../../common/feedList.wxss";
+
+.container {
+	flex-direction: column;
+	background: #f5f5f7;
+	min-height: 100%;
+}
+.meta-info {
+	  width: 750rpx;
+  	height: 420rpx;
+  	position: relative;
+}
+
+.meta-info image {
+	width: 750rpx;
+  	height: 420rpx;
+}
+
+.meta-info .mask {
+	width: 750rpx;
+  height: 420rpx;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.meta-info .name {
+	font-size: 52rpx;
+  	font-weight: 600;
+  	color: #ffffff;
+
+  	position: absolute;
+  	left: 32rpx;
+  	bottom: 75rpx;
+}
+
+
+.meta-info .num-of-feed {
+	font-size: 28rpx;
+  	font-weight: 500;
+  	color: #ffffff;
+
+  	position: absolute;
+  	left: 32rpx;
+  	bottom: 32rpx;
+}
+
+.desc {
+	padding: 32rpx;
+	font-size: 14px;
+	line-height: 1.86;
+	color: rgba(0,0,0,0.8);
+	background: #fff;
+}

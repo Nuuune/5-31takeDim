@@ -1,0 +1,6 @@
+/**app.wxss**/
+
+@import "assets/styles/fonts.wxss";
+@import "assets/styles/zan-fonts.wxss";
+@import "assets/styles/layout.wxss";
+@import "assets/styles/index.wxss";

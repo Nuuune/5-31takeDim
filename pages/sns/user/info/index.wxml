@@ -1,0 +1,53 @@
+<view wx:if="{{userData}}" class="container">
+  <view class="user-info">
+    <image class="bg" src="{{userData.user.avatar}}?x-oss-process=style/cover-4-3"></image>
+    <image class="avatar" src="{{userData.user.avatar}}"></image>
+    <text class="name">{{userData.user.nickname}} 上海</text>
+    <text class="title">风尚达人</text>
+    <text class="desc">国家一级拔草运动员</text>
+
+    <view class="summary">
+      <view catchtap="onFollowedTap">
+        <text>{{userData.followCount}}</text>
+        <text>关注</text>
+      </view>
+      <view catchtap="onFollowerTap">
+        <text>{{userData.followerCount}}</text>
+        <text>粉丝</text>
+      </view>
+      <view>
+        <text>{{userData.diggCount}}</text>
+        <text>被赞</text>
+      </view>
+      <view>
+        <text>{{userData.favorCount}}</text>
+        <text>被收藏</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="tab">
+    <view class="active">
+      动态 {{userData.feedCount}}
+    </view>
+  </view>
+
+  <!-- 动态列表 -->
+  <import src="../../common/feedList.wxml" />
+  <template is="feedList" data="{{feeds: userData.feeds}}"></template>
+  <!-- END：动态列表 -->      
+
+
+  <view class="has-more" wx:if="{{hasMore}}">
+    加载更多...
+  </view>
+  <view class="no-more" wx:else>
+    没有更多了
+  </view>
+<!-- 
+  <!-- Bottom Nav -->
+  <!-- <view class="nav-bottom"> -->
+    <!-- <button catchtap="onFollowTap" class="button small danger block">关注</button> -->
+  <!-- </view> -->
+   <!-- END: Bottom Nav  -->
+</view>

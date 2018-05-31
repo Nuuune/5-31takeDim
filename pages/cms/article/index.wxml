@@ -1,0 +1,85 @@
+<!--index.wxml-->
+<view wx:if="{{article}}" class="container">
+  <scroll-view scroll-y>
+    <!-- Author -->
+    <view class="head author">
+      <image class="avatar" src="{{article.articleAuthorVo.avatar}}?imageMogr2/auto-orient/thumbnail/!100x100r/gravity/Center/crop/100x100|imageView2/1/format/jpg/interlace/0/q/100" mode="widthFix" />
+      
+      <view class="info">
+        <text class="name">{{article.articleAuthorVo.nickName}}</text>
+        <text class="desc ellipsis">{{article.articleAuthorVo.summary}}</text>
+      </view>
+
+    </view>
+    <!-- END: Author -->
+
+    <image class="coverImage" src="{{article.coverImage}}?imageMogr2/auto-orient/thumbnail/!750x450r/gravity/Center/crop/750x450|imageView2/1/format/jpg/interlace/0/q/100" mode="widthFix" />
+
+    <view class="article">
+      <view class="title">
+        {{article.title}}
+      </view>
+      <view class="introduction">
+        {{article.introduction}}
+      </view>
+      <view class="line">
+      </view>
+      <view class="authorm">
+        作者：{{article.articleAuthorVo.nickName}}
+      </view>
+
+      <!-- Article Sections -->
+      <block wx:for="{{article.sectionVoList}}" wx:key="">
+        <!-- Header -->
+        <view wx:if="{{item._t=='header'}}"></view>
+        <!-- Text -->
+        <view class="t_text" wx:elif="{{item._t=='text'}}">{{item.plain_text}}</view>
+        <!-- Image -->
+        <view class="t_image" wx:elif="{{item._t=='image'}}">
+          <image src="{{item.image}}" mode="aspectFill" />
+        </view>
+        <!-- Title -->
+        <view class="t_title" wx:elif="{{item._t=='title'}}">{{item.plain_text}}</view>
+        <!-- Goods -->
+        <navigator class="t_goods" wx:elif="{{item._t=='goods'}}" url="../../catalog/product/index?productId={{item.goodsId}}">
+          <image src="{{item.image}}" mode="aspectFill" />
+          <view class="content">
+            <text class="title">{{item.title}}</text>
+
+            <view class="bottom">
+              <text class="price">¥{{item.price}}</text>
+              <text class="oldprice">¥{{item.oldprice}}</text>
+              <navigator url="../../catalog/product/index?productId={{item.goodsId}}" class="btn">查看酒款</navigator>
+            </view>
+          </view>
+        </navigator>
+        <view wx:else></view>
+      </block>
+      <!-- END: Article Sections -->
+      <view class="meta">
+        <text class="date">On {{article.fomattedCreateTime}}</text>
+        <text class="exposure">阅读数：{{article.exposureCount}}</text>
+      </view>
+      <view class="hr"></view>
+      <view class="from">
+        内容来自 <text class="en">FROM</text>
+      </view>
+
+      <!-- Author -->
+      <view class="author">
+        <image class="avatar" src="{{article.articleAuthorVo.avatar}}?imageMogr2/auto-orient/thumbnail/!100x100r/gravity/Center/crop/100x100|imageView2/1/format/jpg/interlace/0/q/100" mode="widthFix" />
+        
+        <view class="info">
+          <text class="name">{{article.articleAuthorVo.nickName}}</text>
+          <text class="desc">编辑推荐</text>
+        </view>
+      </view>
+        <view class="author-desc">{{article.articleAuthorVo.summary}}</view>
+      <!-- END: Author -->
+    </view>      
+  </scroll-view>
+  
+  <view class="nav-bottom">
+    <text class="fa fa-shopping-bag"></text>相关酒款
+  </view>
+</view>

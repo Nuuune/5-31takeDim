@@ -1,0 +1,4 @@
+styleName:thumb-manufacturer,styleBody:image/resize,m_fill,w_160,h_90,limit_0/auto-orient,1/sharpen,100/quality,q_90
+styleName:avatar,styleBody:image/resize,m_fill,w_120,h_120,limit_1/auto-orient,1/format,jpg/interlace,1
+styleName:feed-multi-img-thumb,styleBody:image/resize,m_fill,w_218,h_218,limit_1/auto-orient,1/sharpen,100/quality,q_90/format,jpg/interlace,1
+styleName:feed-single-img-thumb,styleBody:image/resize,m_fill,w_540,h_540,limit_1/auto-orient,1/sharpen,100/quality,q_90/format,jpg/interlace,1

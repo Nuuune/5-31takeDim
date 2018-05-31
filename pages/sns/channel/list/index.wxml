@@ -1,0 +1,18 @@
+<view wx:if="{{channelList}}" class="container">
+  <view class="channel-list">
+  	<navigator url="/pages/sns/channel/info/index?channelId={{channel.id}}" class="channel" wx:for="{{channelList}}" wx:for-item="channel" wx:key="">
+        <image src="{{channel.coverImage}}?x-oss-process=style/thumb-sns-topic-list" />
+
+        <view class="content">
+        	<text class="name ellipsis">{{channel.name}}</text>
+        	<text class="desc ellipsis">{{channel.introduction}}</text>
+        	<text class="num-of-feeds">
+            <text>{{channel.feedCount}}条分享</text>
+            <text>{{channel.followCount}}条订阅</text>
+          </text>
+        </view>
+
+        <button data-channel-id="{{channel.id}}" catchtap="onFollowTap" class="button follow">关注</button>
+  	</navigator>
+  </view>
+</view>

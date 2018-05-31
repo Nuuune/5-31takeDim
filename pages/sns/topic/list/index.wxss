@@ -1,0 +1,51 @@
+.container .topic-list {
+	width: 100%;
+	padding: 0 32rpx;
+  background-color:#fff;
+
+}
+
+.container .topic {
+	display: flex;
+	flex-direction: row;
+	padding: 32rpx 0;
+	border-bottom: 1rpx solid rgba(216, 216, 216, 0.4);
+}
+
+.container .topic image {
+	width: 160rpx;
+	height: 160rpx;
+	border-radius: 8rpx;
+}
+
+.container .topic .content {
+	width: 494rpx;
+	padding-top: 10rpx;
+	padding-left: 32rpx;
+	position: relative;
+}
+
+
+.container .topic .content text {
+	display: block;
+}
+
+.container .topic .content text.name{
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #000000;
+}
+
+.container .topic .content text.desc{
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  color: #000000;
+}
+
+.container .topic .content text.num-of-feeds{
+  font-size: 24rpx;
+  color: #0FBB58;
+  position: absolute;
+  bottom: 14rpx;
+  left: 32rpx;
+}
