@@ -19,3 +19,4 @@ yarn-error.log*
 #custom
 *.zip
 *.rar
+project.config.json
