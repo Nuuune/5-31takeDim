@@ -12,8 +12,10 @@ import feed from './feed';
 import snsTopic from './snsTopic';
 import snsChannel from './snsChannel';
 import snsUser from './snsUser';
+import course from './course';
 
 export default combineReducers({
+  course,
   product,
   cart,
   checkout,

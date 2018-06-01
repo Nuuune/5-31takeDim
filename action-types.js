@@ -1,10 +1,10 @@
 /**
  * Copyright (C), 2017 InnoSolutions
- * 
+ *
  * File Name: action-type.js
- * 
+ *
  * Author: InnoSolutions Team
- * 
+ *
  * Description: Constants Definition for Redux Action Type
  */
 
@@ -74,10 +74,15 @@ const SUBSCRIBE_LOGIN_NEXT_URL = "SUBSCRIBE_LOGIN_NEXT_URL"
 const SUBSCRIBE_JWT_CALLBACK = "SUBSCRIBE_JWT_CALLBACK"
 const UCENTER_TOGGLE_FOLLOW_USER = "UCENTER_TOGGLE_FOLLOW_USER"
 
+//course
+const COURSE_FETCH_LIST = "COURSE_FETCH_LIST"
+
 module.exports = {
   ASYNC_STATUS,
   LOADING_METHOD,
 
+  // course
+  COURSE_FETCH_LIST,
   //catalog
   CATALOG_FETCH_HOME,
   CATALOG_FETCH_PRODUCT,

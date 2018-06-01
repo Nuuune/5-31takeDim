@@ -1,0 +1,19 @@
+<!--pages/course/cslist/index.wxml-->
+<view wx:for="{{courseList}}" class="list-wrap">
+  <navigator class="article" wx:key="{{idex}}">
+    <view class="image">
+      <image src="{{item.image}}"></image>
+      <text class="tag">{{item.label}}</text>
+    </view>
+    <view class="content">
+      <text class="title">{{item.title}}</text>
+      <text wx:if="{{item.content}}" class="subtitle ellipsis">{{item.content}}</text>
+
+      <text class="class">{{item.numOfClasses}}节课</text>
+      <text class="follow">{{item.follow}}人已购买</text>
+    </view>
+  </navigator>
+</view>
+<view wx:if="{{isFetching}}" class="flex flex-center loading">
+  <text>加载中...</text>
+</view>

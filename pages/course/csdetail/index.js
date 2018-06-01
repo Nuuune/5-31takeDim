@@ -1,0 +1,3 @@
+let pageConfig = {};
+
+Page(pageConfig);

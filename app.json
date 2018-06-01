@@ -2,6 +2,9 @@
   "pages":[
     "pages/catalog/home/index",
 
+    "pages/course/cslist/index",
+    "pages/course/csdetail/index",
+
     "pages/sns/home/index",
     "pages/sns/channel/list/index",
     "pages/sns/channel/info/index",
@@ -16,7 +19,7 @@
     "pages/sns/topic/info/index",
 
     "pages/cart/index",
-    
+
     "pages/catalog/product/index",
 
     "pages/checkout/index",

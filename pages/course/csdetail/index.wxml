@@ -1,0 +1,6 @@
+<view class="video-wrap">
+</view>
+<view class="tab-wrap flex flex-row flex-center">
+  <view class="flex flex-center"><text>tab1</text></view>
+  <view class="flex flex-center"><text>tab2</text></view>
+</view>

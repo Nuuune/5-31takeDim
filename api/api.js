@@ -6,7 +6,7 @@ const HOST_URL = 'https://api.freshkoo.com/dw/micro-api/';
 
 /**
  * wxRequest Method
- * 
+ *
  * @param params
  * @url url to request
  */
@@ -46,6 +46,7 @@ const getProductData = (params) => wxRequest(params, HOST_URL + 'panda/api/view/
 const getEcHomeData = (params) => wxRequest(params, HOST_URL + "/social/api/view/commerce")
 const getShoppingCart = (params) => wxRequest(params, HOST_URL + "/panda/api/view/shopcart?products=" + JSON.stringify(params.data.rawData))
 const getArticleData = (params) => wxRequest(params, HOST_URL + '/panda/api/view/article/' + params.data.articleId)
+const getCourseData = (params) => wxRequest(params, `http://localhost:80/course/course.json`)
 
 const wxNewRequest = (params, url) => {
   wx.showToast({
@@ -119,6 +120,7 @@ const wxNewRequest = (params, url) => {
   const followChannel = (params) => wxNewRequest(params, 'https://api.dinlab.cn/micro-api/api/channel/follow/?channelId=' + params.data.channelId);
 
   module.exports = {
+    getCourseData,
     getHomeData,
     getProductData,
     getEcHomeData,
