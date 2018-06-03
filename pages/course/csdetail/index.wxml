@@ -1,6 +1,29 @@
 <view class="video-wrap">
 </view>
 <view class="tab-wrap flex flex-row flex-center">
-  <view class="flex flex-center"><text>tab1</text></view>
-  <view class="flex flex-center"><text>tab2</text></view>
+  <view class="flex flex-center {{istab1 ? 'active' : ''}}"><text>课程介绍</text></view>
+  <view class="flex flex-center {{istab1 ? '' : 'active'}}"><text>课程目录</text></view>
 </view>
+<scroll-view class="bg-gray content">
+  <view class="content">
+    <view class="flex flex-row flex-between intro-1-warp align-start">
+      <view class="flex flex-center align-start">
+        <text>C4D实战全能班 (180530)</text>
+        <text><text class="zan-icon zan-icon-gift"></text> 5月30日 20:30 开课</text>
+      </view>
+      <view class="flex flex-center align-start">
+        <text class="font-org">￥3880.00</text>
+        <text>109人已购买</text>
+      </view>
+    </view>
+    <view class="flex flex-row flex-between prefer-wrap">
+      <view class="flex flex-center flex-row">
+        <text class="tag bg-org">限额优惠中</text>
+        <text>剩余11名额</text>
+      </view>
+      <view class="flex flex-center">
+        <text class="text-delete">原价：￥7000.00</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
