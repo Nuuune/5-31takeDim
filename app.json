@@ -4,6 +4,7 @@
 
     "pages/course/cslist/index",
     "pages/course/csdetail/index",
+    "pages/course/csbuy/index",
 
     "pages/sns/home/index",
     "pages/sns/channel/list/index",

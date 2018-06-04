@@ -60,6 +60,9 @@ button::after {
 .align-start {
   align-items: flex-start;
 }
+.align-stretch {
+  align-items: stretch;
+}
 .align-end {
   align-items: flex-end;
 }
@@ -73,9 +76,15 @@ button::after {
 .flex-beRow:last-child {
   margin-bottom: 0;
 }
+.clear-padding {
+  padding: 0 !important;
+}
 /* 颜色方面 */
 .bg-gray {
   background-color: #f4f6f8;
+}
+.bg-white {
+  background-color: #fff;
 }
 .bg-org {
   background-color: #ff7f61;
@@ -83,7 +92,39 @@ button::after {
 .font-org {
   color: #ff7f61;
 }
+.font-black {
+  color: #000;
+}
+.font-weight-600 {
+  font-weight: 600;
+}
+.font-deepgray {
+  color: #949494;
+}
+.font-white {
+  color: #fff;
+}
+.font-primary {
+  color: #1ca899;
+}
 /* 文本处理 */
 .text-delete {
   text-decoration: line-through;
+}
+/* 按钮组相关 */
+.btns-wrap {
+  border-top:1rpx solid #f4f6f8;
+  height: 90rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding:10rpx 0;
+}
+.btns-wrap .btn {
+  height:70rpx;
+  line-height:70rpx;
+  text-align: center;
+  font-size: 28rpx;
+  margin:0 10rpx;
+  border-radius: 18rpx;
 }

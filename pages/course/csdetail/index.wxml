@@ -1,12 +1,16 @@
 <view class="video-wrap">
+  <video src="{{currVideo}}"></video>
 </view>
+<!-- 切换标签开始 -->
 <view class="tab-wrap flex flex-row flex-center">
-  <view class="flex flex-center {{istab1 ? 'active' : ''}}"><text>课程介绍</text></view>
-  <view class="flex flex-center {{istab1 ? '' : 'active'}}"><text>课程目录</text></view>
+  <view class="flex flex-center {{istab1 ? 'active' : ''}}" bind:tap="toggleTab"><text>课程介绍</text></view>
+  <view class="flex flex-center {{istab1 ? '' : 'active'}}" bind:tap="toggleTab"><text>课程目录</text></view>
 </view>
-<scroll-view class="bg-gray content">
+<!-- 切换标签结束 -->
+<!-- 课程介绍开始 -->
+<scroll-view hidden="{{!istab1}}" scroll-y="{{true}}" class="bg-gray content">
   <view class="content">
-    <view class="flex flex-row flex-between intro-1-warp align-start">
+    <view class="flex flex-row flex-between intro-1-wrap align-start">
       <view class="flex flex-center align-start">
         <text>C4D实战全能班 (180530)</text>
         <text><text class="zan-icon zan-icon-gift"></text> 5月30日 20:30 开课</text>
@@ -25,5 +29,105 @@
         <text class="text-delete">原价：￥7000.00</text>
       </view>
     </view>
+    <view class="flex teacher-intro-wrap clear-padding">
+      <view class="title">
+        <text>讲师简介</text>
+      </view>
+      <view class="flex flex-row align-start flex-start teacher-info">
+        <view class="avater"><image src="{{avater}}"></image></view>
+        <view class="flex align-start">
+          <text class="name">TVart</text>
+          <text class="intro">Adobe中国后期合成专家讲师，AUTODESK教育专家，3D影像专家</text>
+        </view>
+      </view>
+    </view>
+    <view class="flex course-intro-wrap clear-padding">
+      <view class="title">
+        <text>课程简介</text>
+      </view>
+      <view class="course-intro-detail">
+        <text>超级福利
+
+5月10日上午10：00正式预售
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHHHHHHHHHHHHHHHHHHHH
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+HHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+
+SSSSS
+SS</text>
+      </view>
+      <view class="ad">
+        <image></image>
+      </view>
+    </view>
+    <view class="ph-box">--- 到底了 ---</view>
   </view>
 </scroll-view>
+<!-- 课程介绍结束 -->
+<!-- 课程目录开始 -->
+<view hidden="{{istab1}}" class="flex cata-wrap clear-padding">
+  <view class="title">
+    <text>课程目录</text><text class="title-des">(共3节课)</text>
+  </view>
+</view>
+<scroll-view hidden="{{istab1}}" scroll-y="{{true}}" class="bg-gray content-2">
+  <view class="content-2 spacial-mr-top">
+    <view class="flex cata-wrap clear-padding">
+      <view class="unit flex align-end font-deepgray">
+        <view class="lv-1 flex flex-row">
+          <text class="font-deepgray">01</text><text class="font-weight-600 font-black">C4D&OC渲染毛刺生长</text>
+        </view>
+        <!-- 有时间未开始 -->
+        <view class="lv-2 flex flex-row flex-between" catch:tap="changeVideo" data-vid="0">
+          <view class="flex flex-row left">
+            <text>icon</text>
+            <text>第一节 说得清呢，请问撒春节前晚上是的浓情文学才能，去啊是的请问</text>
+          </view>
+          <view class="flex flex-row">
+            <text class="time-wait">05月30日 20:30</text>
+          </view>
+        </view>
+        <!-- 没有时间 -->
+        <view class="lv-2 flex flex-row flex-between" catch:tap="changeVideo" data-vid="1">
+          <view class="flex flex-row left">
+            <text>icon</text>
+            <text>第二节 说得清呢，请问撒春节前晚上是的浓情文学才能，去啊是的请问</text>
+          </view>
+          <view class="flex flex-row">
+            <text class="time-wait">即将更新</text>
+          </view>
+        </view>
+        <!-- 免费试学 -->
+        <view class="lv-2 flex flex-row flex-between" catch:tap="changeVideo" data-vid="2">
+          <view class="flex flex-row left">
+            <text>icon</text>
+            <text>第三节 说得清呢，请问撒春节前晚上是的浓情文学才能，去啊是的请问</text>
+          </view>
+          <view class="flex flex-row">
+            <view class="free-btn">免费试学</view>
+          </view>
+        </view>
+        <view class="lv-2 flex flex-row flex-between" catch:tap="changeVideo" data-vid="1">
+          <view class="flex flex-row left">
+            <text>icon</text>
+            <text>第三节 说得清呢，请问撒春节前晚上是的浓情文学才能，去啊是的请问</text>
+          </view>
+          <view class="flex flex-row">
+            <text><text class="font-primary">icon</text> 10:24</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="ph-box font-deepgray">--- 没有更多 ---</view>
+  </view>
+</scroll-view>
+<!-- 课程目录结束 -->
+<!-- 购买按钮组开始 -->
+<view class="flex flex-row btns-wrap bg-white" >
+  <view class="flex-item-1 btn bg-white font-deepgray">关注课程</view>
+  <view class="flex-item-1 btn bg-org font-white">立即购买</view>
+</view>
+<!-- 购买按钮组结束 -->
