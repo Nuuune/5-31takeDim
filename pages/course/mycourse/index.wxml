@@ -1,0 +1,36 @@
+<!-- tab开始 -->
+<view class="flex flex-row flex-center tab-wrap">
+  <view class="{{istab1 ? 'tab-hl' : ''}}" bind:tap="toggleTab">
+    <text>学习课程</text>
+  </view>
+  <view class="v-sline"></view>
+  <view class="{{istab1 ? '' : 'tab-hl'}}" bind:tap="toggleTab">
+    <text>关注课程</text>
+  </view>
+</view>
+<!-- tab结束 -->
+<!-- 列表开始 -->
+<scroll-view>
+  <view wx:for="{{courseList}}" class="list-wrap" wx:key="{{idex}}">
+    <navigator class="article">
+      <view class="image">
+        <image src="{{item.image}}"></image>
+        <text class="tag">{{item.label}}</text>
+      </view>
+      <view class="content">
+        <text class="title">{{item.title}}</text>
+        <text wx:if="{{item.content}}" class="subtitle ellipsis">{{item.content}}</text>
+
+        <text class="class">{{item.numOfClasses}}节课</text>
+        <text class="follow">{{item.follow}}人已购买</text>
+      </view>
+    </navigator>
+  </view>
+  <view wx:if="{{isFetching}}" class="flex flex-center loading">
+    <text>加载中...</text>
+  </view>
+  <view wx:if="{{errorMsg}}" class="flex flex-center loading">
+    <text>{{errorMsg}}</text>
+  </view>
+</scroll-view>
+<!-- 列表结束 -->

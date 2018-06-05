@@ -1,0 +1,30 @@
+<view class="header flex flex-center">
+  <image src="../../../images/me-bg.png"></image>
+  <!-- <view class="login-btn">
+    <text>点击登陆</text>
+  </view> -->
+  <view class="flex info">
+    <view class="avater flex">
+      <image src="../../../images/u-avater.png"></image>
+    </view>
+    <view class="flex">
+      <text>your name</text>
+    </view>
+  </view>
+</view>
+<view class="flex pad-box lf-pad-box mar-top align-stretch top-line bottom-line boder-c-gray">
+  <view class="flex flex-row flex-between pad-box">
+    <text><text class="fa fa-pencil-square-o fa-lg font-primary right-mar"></text>我的订单</text>
+    <text><text class="fa fa-angle-right fa-lg font-deepgray"></text></text>
+  </view>
+  <view class="flex flex-row flex-between pad-box top-line">
+    <text><text class="fa fa-ticket fa-lg font-primary right-mar"></text>优惠券</text>
+    <text><text class="fa fa-angle-right fa-lg font-deepgray"></text></text>
+  </view>
+</view>
+<view class="flex pad-box lf-pad-box mar-top align-stretch top-line bottom-line boder-c-gray">
+  <view class="flex flex-row flex-between pad-box">
+    <text><text class="fa fa-info-circle fa-lg font-primary right-mar"></text>关于</text>
+    <text><text class="fa fa-angle-right fa-lg font-deepgray"></text></text>
+  </view>
+</view>

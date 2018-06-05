@@ -1,22 +1,22 @@
 /**
  * Copyright (C), 2017 InnoSolutions
- * 
+ *
  * File Name: action-type.js
  * Author: InnoSolutions Team
  * Description: Constants Definition for Redux Action Type
  */
 
 //action types
-import { 
-  FETCH_LOGIN, 
-  ASYNC_STATUS, 
-  CART_LOAD_STORAGE, 
-  WX_CHECKSESSION_SUCCESS, 
-  WX_LOGIN_SUCCESS, 
-  SUBSCRIBE_LOGIN_CALLBACK, 
+import {
+  FETCH_LOGIN,
+  ASYNC_STATUS,
+  CART_LOAD_STORAGE,
+  WX_CHECKSESSION_SUCCESS,
+  WX_LOGIN_SUCCESS,
+  SUBSCRIBE_LOGIN_CALLBACK,
   SUBSCRIBE_LOGIN_NEXT_URL,
   SUBSCRIBE_JWT_CALLBACK,
-  UCENTER_TOGGLE_FOLLOW_USER 
+  UCENTER_TOGGLE_FOLLOW_USER
 } from '../action-types'
 
 //ajax request
@@ -37,8 +37,8 @@ const fetchLoginRequest = () => {
 
 /**
  * Login Success Action
- * 
- * @param result 
+ *
+ * @param result
  */
 const fetchLoginSuccess = (result) => {
   console.log("fetchLoginSuccess" + result)
@@ -94,11 +94,11 @@ export function fetchLogin(mobile, vcode, jwt) {
 
 /**
  * Check Session
- * 
+ *
  * 1. 检查Session
  * 2. 如果session有效，则从本地存储中获取jwt
  * 3. 根据jwt初始化app.globalData
- * 4. 如果session失效，则进行微信登录
+ * 4. 如果session失效，则进行微信登录 // 由于微信目前已不支持wx.getUserInfo接口， 故现在不采取自动登陆
  */
 const wxInitSession = (store) => {
   wx.checkSession({
@@ -112,7 +112,7 @@ const wxInitSession = (store) => {
             type: WX_CHECKSESSION_SUCCESS,
             jwt: jwt
           });
-        } 
+        }
         //else do wx login
         else {
           wxLogin(store);
@@ -124,7 +124,7 @@ const wxInitSession = (store) => {
     fail: function () {
       console.log("check session fail");
 
-      wxLogin(store);
+      // wxLogin(store);
     }
   })
 
@@ -137,7 +137,7 @@ const wxInitSession = (store) => {
         type: CART_LOAD_STORAGE,
         contents: contents
       });
-    } 
+    }
   } catch (e) {
 
   }
@@ -145,8 +145,8 @@ const wxInitSession = (store) => {
 
 
 /**
- * 微信登录
- * 
+ * 微信登录 -- 为bindGetUserInfo事件
+ *
  * 1. 调用wx.login获取code
  * 2. 调用wx.getUserInfo获取用户信息
  * 3. 调用服务端wx-login方法，获取jwt
@@ -232,7 +232,7 @@ const subscribeLoginCallback = (callback) => {
     type: SUBSCRIBE_LOGIN_CALLBACK,
     callback: callback
   }
-} 
+}
 
 /**
  * Do Login With CallBack
@@ -242,7 +242,7 @@ const subscribeLoginNextUrl = (url) => {
     type: SUBSCRIBE_LOGIN_NEXT_URL,
     nextUrl: url
   }
-} 
+}
 
 /**
  * Do Login Request Action
@@ -259,8 +259,8 @@ const toggleFollowUserRequest = (userId, subscribe) => {
 
 /**
  * Login Success Action
- * 
- * @param result 
+ *
+ * @param result
  */
 const toggleFollowUserSuccess = (userId, subscribe, result) => {
   console.log("toggleFollowUserSuccess" + result)
@@ -309,7 +309,7 @@ const toggleFollowUser = (userId, subscribe) => {
       }
     });
   }
-} 
+}
 
 
 module.exports = {
