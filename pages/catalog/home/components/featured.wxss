@@ -89,3 +89,8 @@
   bottom: 0;
   right: 0;
 }
+
+.font-link {
+  color: #0FBB58;
+  font-size:38rpx;
+}

@@ -6,7 +6,7 @@ import util from '../../../utils/util';
 import { ASYNC_STATUS } from "../../../action-types";
 
 //Redux actions
-import {fetchCourseData} from '../../../actions/courseAction';
+import {fetchCourseData, clearErrMsg} from '../../../actions/courseAction';
 
 //Redux
 import { connect } from '../../../libs/redux-weapp/wechat-weapp-redux.min';
@@ -20,12 +20,26 @@ const pageConfig ={
     isFetching: false,
     errorMsg: ''
   },
-  onLoad: function() {
+  onLoad: function(e) {
     this.fetchCourseData();
+    console.log(e);
   },
   onReachBottom: function() {
-    console.log('sss');
     this.fetchCourseData();
+  },
+  onPullDownRefresh: function() {
+    wx.showNavigationBarLoading();
+    this.clearErrMsg();
+    this.fetchCourseData({
+      success: () => {
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
+      },
+      fail: () => {
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
+      }
+    });
   }
 };
 
@@ -48,7 +62,8 @@ const mapStateToData = state => ({
  * @param dispatch function
  */
 const mapDispatchToPage = dispatch => ({
-  fetchCourseData: () => dispatch(fetchCourseData())
+  fetchCourseData: (option) => dispatch(fetchCourseData(option)),
+  clearErrMsg: () => dispatch(clearErrMsg())
 });
 
 /**

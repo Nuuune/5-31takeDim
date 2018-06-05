@@ -1,5 +1,5 @@
 //action types
-import { COURSE_FETCH_LIST, ASYNC_STATUS } from '../action-types'
+import { COURSE_FETCH_LIST, ASYNC_STATUS, COURSE_CLEAR_ERRMSG  } from '../action-types'
 
 /**
  * Initial State
@@ -38,6 +38,11 @@ export default function reducer(state = initialState, action = {}) {
         default:
           console.error(`未知的action.status`);
           return state;
+      };
+    case COURSE_CLEAR_ERRMSG:
+      return {
+        ...state,
+        errorMsg: ""
       };
     // none
     default:

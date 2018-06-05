@@ -1,6 +1,6 @@
 <!--pages/course/cslist/index.wxml-->
-<view wx:for="{{courseList}}" class="list-wrap">
-  <navigator class="article" wx:key="{{idex}}">
+<view wx:for="{{courseList}}" class="list-wrap" wx:key="{{idex}}">
+  <navigator class="article">
     <view class="image">
       <image src="{{item.image}}"></image>
       <text class="tag">{{item.label}}</text>
@@ -16,4 +16,7 @@
 </view>
 <view wx:if="{{isFetching}}" class="flex flex-center loading">
   <text>加载中...</text>
+</view>
+<view wx:if="{{errorMsg}}" class="flex flex-center loading">
+  <text>{{errorMsg}}</text>
 </view>

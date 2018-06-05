@@ -1,5 +1,5 @@
 //action types
-import { COURSE_FETCH_LIST, ASYNC_STATUS } from "../action-types";
+import { COURSE_FETCH_LIST, ASYNC_STATUS, COURSE_CLEAR_ERRMSG } from "../action-types";
 
 //api
 import api from "../api/api"
@@ -37,20 +37,35 @@ export function fetchCourseFailure(errMsg) {
 }
 
 /**
+ * 清空错误信息
+ */
+export function clearErrMsg() {
+ return {
+   type: COURSE_CLEAR_ERRMSG
+ }
+}
+
+/**
  * do
  */
-export function fetchCourseData(productId) {
-  console.log("fetchCourseData")
+export function fetchCourseData(option = {}) {
+  console.log("fetchCourseData");
   return dispatch => {
     dispatch(fetchCourseRequest())
     setTimeout(()=>{
       api.getCourseData({
         success: (res) => {
           if (res.success == true) {
-            dispatch(fetchCourseSuccess(res.data))
+            dispatch(fetchCourseSuccess(res.data));
+            option.success && option.success();
           } else {
-            dispatch(fetchCourseFailure(res.msg))
+            dispatch(fetchCourseFailure(res.msg));
+            option.fail && option.fail();
           }
+        },
+        fail: (err) => {
+          dispatch(fetchCourseFailure(err.errMsg));
+          option.fail && option.fail();
         }
       })
     },2000)
@@ -62,5 +77,6 @@ module.exports = {
   fetchCourseRequest,
   fetchCourseSuccess,
   fetchCourseFailure,
-  fetchCourseData
+  fetchCourseData,
+  clearErrMsg
 }
