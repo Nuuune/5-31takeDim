@@ -20,9 +20,8 @@ const pageConfig ={
     isFetching: false,
     errorMsg: ''
   },
-  onLoad: function(e) {
+  onLoad: function() {
     this.fetchCourseData();
-    console.log(e);
   },
   onReachBottom: function() {
     this.fetchCourseData();
@@ -31,6 +30,7 @@ const pageConfig ={
     wx.showNavigationBarLoading();
     this.clearErrMsg();
     this.fetchCourseData({
+      refresh: true,
       success: () => {
         wx.hideNavigationBarLoading();
         wx.stopPullDownRefresh();

@@ -9,7 +9,7 @@
 </view>
 <view class="flex flex-row flex-between pad-box mar-top">
   <text>优惠券: <text class="font-deepgray">无可用优惠券</text></text>
-  <text class="font-deepgray"> > </text>
+  <text class="fa fa-angle-right fa-lg font-deepgray"></text>
 </view>
 <view class="flex align-stretch mar-top">
   <view class="pad-box bottom-line flex flex-row flex-between">
@@ -23,7 +23,7 @@
 </view>
 <radio-group class="flex align-stretch mar-top" bindchange="radioChange">
   <label class="pad-box flex flex-row ">
-    <radio value="wx" checked="{{false}}"/> <image class="shape-normal bg-org"></image>微信付款
+    <radio value="wx" checked="{{false}}"/> <image src="../../../images/wx-icon.png" class="shape-normal"></image>微信付款
   </label>
 </radio-group>
 <!-- 购买按钮组开始 -->

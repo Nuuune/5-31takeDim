@@ -124,7 +124,7 @@ const wxInitSession = (store) => {
     fail: function () {
       console.log("check session fail");
 
-      // wxLogin(store);
+      wxLogin(store);
     }
   })
 
@@ -153,7 +153,7 @@ const wxInitSession = (store) => {
  * 4. 这些都应该是同步的，然后才能开始发起服务端的请求
  */
 const wxLogin = (store) => {
-
+  console.log(store);
   //do wxinlogin
   wx.login({
     success: function (res) {

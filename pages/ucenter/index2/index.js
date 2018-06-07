@@ -17,7 +17,11 @@ import { connect } from '../../../libs/redux-weapp/wechat-weapp-redux.min';
 /**
  * 页面配置对象
  */
-const pageConfig ={};
+const pageConfig ={
+  onLoad: function(){
+    console.log(this.store.getState());
+  }
+};
 
 /**
  * Map Redux State to Page Data

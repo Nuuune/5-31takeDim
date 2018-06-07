@@ -1,5 +1,18 @@
 <view class="video-wrap">
-  <video src="{{currVideo}}"></video>
+  <video
+    id="myVideo"
+    bindplay="videoPlay"
+    bindpause="videoPause"
+    src="{{currVideo}}"
+    show-play-btn="{{false}}"
+    show-center-play-btn="{{false}}">
+    <cover-view class="my-video-control">
+      <cover-view hidden="{{isplay}}" class="my-video-control-shadow"></cover-view>
+      <cover-view hidden="{{isplay}}" class="my-video-begin" bind:tap="playVideo">
+        开始学习
+      </cover-view>
+    </cover-view>
+  </video>
 </view>
 <!-- 切换标签开始 -->
 <view class="tab-wrap flex flex-row flex-center">
@@ -77,13 +90,29 @@ SS</text>
   <view class="content-2 spacial-mr-top">
     <view class="flex cata-wrap clear-padding">
       <view class="unit flex align-end font-deepgray">
-        <view class="lv-1 flex flex-row">
+        <block wx:if="{{courseDetail.chapters}}" wx:for="{{courseDetail.chapters}}" wx:key="out{{index}}">
+          <view class="lv-1 flex flex-row">
+            <text class="font-deepgray">{{(index+1) < 10 ? ("0" + (index+1)) : (index+1)}}</text><text class="font-weight-600 font-black">{{item.title}}</text>
+          </view>
+          <block wx:for="{{item.items}}" wx:for-index="iidx" wx:for-item="iitem" wx:key="in{{iidx}}">
+            <view class="lv-2 flex flex-row flex-between" catch:tap="changeVideo" data-vurl="{{iitem.videoUrl}}">
+              <view class="flex flex-row left">
+                <text class="fa fa-file-text-o fa-lg mar-right"></text>
+                <text>第{{iidx+1}}节 {{iitem.title}}</text>
+              </view>
+              <!-- <view class="flex flex-row">
+                <text class="time-wait">05月30日 20:30</text>
+              </view> -->
+            </view>
+          </block>
+        </block>
+        <!-- <view class="lv-1 flex flex-row">
           <text class="font-deepgray">01</text><text class="font-weight-600 font-black">C4D&OC渲染毛刺生长</text>
-        </view>
+        </view> -->
         <!-- 有时间未开始 -->
-        <view class="lv-2 flex flex-row flex-between" catch:tap="changeVideo" data-vid="0">
+        <!-- <view class="lv-2 flex flex-row flex-between" catch:tap="changeVideo" data-vid="0">
           <view class="flex flex-row left">
-            <text>icon</text>
+            <text class="fa fa-file-text-o fa-lg mar-right"></text>
             <text>第一节 说得清呢，请问撒春节前晚上是的浓情文学才能，去啊是的请问</text>
           </view>
           <view class="flex flex-row">
@@ -91,34 +120,34 @@ SS</text>
           </view>
         </view>
         <!-- 没有时间 -->
-        <view class="lv-2 flex flex-row flex-between" catch:tap="changeVideo" data-vid="1">
+        <!-- <view class="lv-2 flex flex-row flex-between" catch:tap="changeVideo" data-vid="1">
           <view class="flex flex-row left">
-            <text>icon</text>
+            <text class="fa fa-file-text-o fa-lg mar-right"></text>
             <text>第二节 说得清呢，请问撒春节前晚上是的浓情文学才能，去啊是的请问</text>
           </view>
           <view class="flex flex-row">
             <text class="time-wait">即将更新</text>
           </view>
-        </view>
+        </view> -->
         <!-- 免费试学 -->
-        <view class="lv-2 flex flex-row flex-between" catch:tap="changeVideo" data-vid="2">
+        <!-- <view class="lv-2 flex flex-row flex-between" catch:tap="changeVideo" data-vid="2">
           <view class="flex flex-row left">
-            <text>icon</text>
+            <text class="fa fa-file-text-o fa-lg mar-right"></text>
             <text>第三节 说得清呢，请问撒春节前晚上是的浓情文学才能，去啊是的请问</text>
           </view>
           <view class="flex flex-row">
             <view class="free-btn">免费试学</view>
           </view>
-        </view>
-        <view class="lv-2 flex flex-row flex-between" catch:tap="changeVideo" data-vid="1">
+        </view> -->
+        <!-- <view class="lv-2 flex flex-row flex-between" catch:tap="changeVideo" data-vid="1">
           <view class="flex flex-row left">
-            <text>icon</text>
+            <text class="fa fa-file-text-o fa-lg mar-right"></text>
             <text>第三节 说得清呢，请问撒春节前晚上是的浓情文学才能，去啊是的请问</text>
           </view>
           <view class="flex flex-row">
-            <text><text class="font-primary">icon</text> 10:24</text>
+            <text><text class="fa fa-battery-full font-primary"></text> 10:24</text>
           </view>
-        </view>
+        </view>  -->
       </view>
     </view>
     <view class="ph-box font-deepgray">--- 没有更多 ---</view>
@@ -127,7 +156,7 @@ SS</text>
 <!-- 课程目录结束 -->
 <!-- 购买按钮组开始 -->
 <view class="flex flex-row btns-wrap bg-white" >
-  <view class="flex-item-1 btn bg-white font-deepgray">关注课程</view>
+  <view class="flex-item-1 btn bg-white font-deepgray"><text class="fa fa-heart-o fa-lg mar-right"></text>关注课程</view>
   <view class="flex-item-1 btn bg-org font-white">立即购买</view>
 </view>
 <!-- 购买按钮组结束 -->

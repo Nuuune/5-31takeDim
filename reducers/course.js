@@ -1,5 +1,6 @@
 //action types
-import { COURSE_FETCH_LIST, ASYNC_STATUS, COURSE_CLEAR_ERRMSG  } from '../action-types'
+import { COURSE_FETCH_LIST, ASYNC_STATUS, COURSE_CLEAR_ERRMSG, COURSE_CLEAR_LIST,
+  COURSE_SET_COURSEDETAIL, COURSE_CLEAR_COURSEDETAIL} from '../action-types'
 
 /**
  * Initial State
@@ -7,7 +8,8 @@ import { COURSE_FETCH_LIST, ASYNC_STATUS, COURSE_CLEAR_ERRMSG  } from '../action
 const initialState = {
   courselist: [],
   isFetching: false,
-  errorMsg: ""
+  errorMsg: "",
+  courseDetail: null
 };
 
 /**
@@ -44,6 +46,21 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         errorMsg: ""
       };
+    case COURSE_CLEAR_LIST:
+      return {
+        ...state,
+        courselist: []
+      };
+    case COURSE_CLEAR_COURSEDETAIL:
+      return {
+        ...state,
+        courseDetail: null
+      };
+    case COURSE_SET_COURSEDETAIL:
+      return {
+        ...state,
+        courseDetail: action.courseDetail
+      }
     // none
     default:
       return state;

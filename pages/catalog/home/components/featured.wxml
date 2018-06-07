@@ -1,6 +1,6 @@
 <template name="echome-featured">
   <view class="block featured">
-    <navigator url="/pages/course/cslist/index?id=123" class="flex flex-row flex-between">
+    <navigator url="/pages/course/cslist/index" class="flex flex-row flex-between">
       <view class="head">
         <text class="title">热门课程</text>
         <text class="sub-title">近期最热的课程推荐</text>
