@@ -157,6 +157,6 @@ SS</text>
 <!-- 购买按钮组开始 -->
 <view class="flex flex-row btns-wrap bg-white" >
   <view class="flex-item-1 btn bg-white font-deepgray"><text class="fa fa-heart-o fa-lg mar-right"></text>关注课程</view>
-  <view class="flex-item-1 btn bg-org font-white">立即购买</view>
+  <view class="flex-item-1 btn bg-org font-white" bind:tap="toBuy">立即购买</view>
 </view>
 <!-- 购买按钮组结束 -->

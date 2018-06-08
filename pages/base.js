@@ -19,7 +19,7 @@ module.exports = {
 
   /**
    * 微信分享
-   * 
+   *
    * @e event
    */
   onShareAppMessage: function (e) {
@@ -93,6 +93,20 @@ module.exports = {
       wx.redirectTo({
         url: '/pages/ucenter/login/index',
       });
+    }
+  },
+
+  userIsNew: function() {
+    let isNew = getApp().store.getState().ucenter.isNew;
+    let url = _u.getPageUrl();
+    if(isNew){
+      console.log(url);
+      wx.navigateTo({
+        url: `/pages/ucenter/login2/index?url=/${url}`
+      })
+      return true;
+    }else {
+      return false;
     }
   }
 }

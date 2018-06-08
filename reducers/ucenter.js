@@ -1,94 +1,40 @@
 
 import util from "../utils/util";
-import base64 from "../utils/crypto/base64";
 import constants from "../constants";
 
-import { 
-  FETCH_LOGIN, 
-  ASYNC_STATUS, 
-  WX_CHECKSESSION_SUCCESS, 
-  WX_LOGIN_SUCCESS, 
-  SUBSCRIBE_LOGIN_CALLBACK, 
-  SUBSCRIBE_LOGIN_NEXT_URL,
-  UCENTER_TOGGLE_FOLLOW_USER
-} from '../action-types';
+import { FETCH_LOGIN, ASYNC_STATUS, SET_USER_TOKEN,
+NOT_NEW, IS_NEW, SET_USER_INFO } from '../action-types';
 
 /**
  * Initial State
  */
 const initialState = {
-  jwt: null,
   userId: null,
   nickname: "",
-  avatar: constants.DEFAULT_AVATAR,
-  latitude: null,
-  longitude: null,
+  tel: null,
   isLogin: false,
-  loginSuccessUrl: null,
-  loginSuccessCB: null
+  token: null,
+  isNew: false,
+  errMsg: "",
+  code: null,
+  avatarUrl:constants.DEFAULT_AVATAR,
+  city:null,
+  country:null,
+  gender:null,
+  language:null,
+  province:null,
 };
 
 /**
  * 用户中心 Reducer
  */
 export default function reducer(state = initialState, action = {}) {
-
   switch (action.type) {
-
-    //关注用户
-    //
-    case UCENTER_TOGGLE_FOLLOW_USER:
-
-      break;
-    
-    //微信登录 & 微信check session
-    //
-    case WX_LOGIN_SUCCESS: 
-    case WX_CHECKSESSION_SUCCESS:
-      let jwt = action.jwt;
-      let payload = JSON.parse(base64.decode(jwt.split('.')[1]).replace(/\0/g, ''));
-
-      // console.log(action.type)
-      // console.log(payload)
-      // console.log(util.isEmpty(payload.sub) ? false : true)
-
-      return {
-        ...state,
-        jwt: jwt,
-        nickname: payload.nickname,
-        avatar: util.isEmpty(payload.avatar) ? constants.DEFAULT_AVATAR : payload.avatar,
-        userId: util.isEmpty(payload.sub) ? null : payload.sub,
-        isLogin: util.isEmpty(payload.sub) ? false : true
-      };
-      break;
-
-    //注册登录成功回调函数
-    //
-    case SUBSCRIBE_LOGIN_CALLBACK:
-    
-      return {
-        ...state,
-        loginSuccessCB: action.callback
-      };
-      break;
-
-    //注册登录成功跳转页面
-    //
-    case SUBSCRIBE_LOGIN_NEXT_URL:
-      return {
-        ...state,
-        loginSuccessUrl: action.nextUrl
-      };
-      break;
-
     //用户登录
-    //
     case FETCH_LOGIN:
-    
       switch (action.status) {
         //用户加载
         case ASYNC_STATUS.LOADING:
-
           return {
             ...state,
             status: ASYNC_STATUS.LOADING
@@ -96,38 +42,67 @@ export default function reducer(state = initialState, action = {}) {
           break;
         //登录成功
         case ASYNC_STATUS.SUCCESS:
-          let jwt = action.jwt;
-          let payload = JSON.parse(base64.decode(jwt.split('.')[1]).replace(/\0/g, ''));
-
-          //存储jwt到本地存储
-          wx.setStorageSync('jwt', jwt);
-
           return {
             ...state,
-            jwt: jwt,
-            nickname: payload.nickname,
-            avatar: payload.avatar,
-            userId: util.isEmpty(payload.sub) ? null : payload.sub,
-            isLogin: util.isEmpty(payload.sub) ? false : true
-          };          
+            nickname: action.data.nickname ? action.data.nickname : "",
+            avatarUrl: action.data.avater ? action.data.avater : constants.DEFAULT_AVATAR,
+            // userId: util.isEmpty(payload.sub) ? null : payload.sub,
+            isLogin: true,
+            status: ASYNC_STATUS.SUCCESS
+          };
           break;
         //登录成功
         case ASYNC_STATUS.ERROR:
 
           return {
             ...state,
-            status: ASYNC_STATUS.ERROR
+            status: ASYNC_STATUS.ERROR,
+            errMsg: action.errMsg
           };
-          break;
-        default:
-          
       }
-
-      break;
+    case SET_USER_TOKEN: {
+      if(action.code) {
+        return {
+          ...state,
+          code: action.code,
+          token: action.token
+        };
+      } else {
+        return {
+          ...state,
+          token: action.token
+        };
+      }
+    }
+    case SET_USER_INFO: {
+      console.log(action.data);
+      let {
+        userId,
+        nickName,
+        tel,
+        avatarUrl
+      } = action.data;
+      return {
+        ...state,
+        userId,
+        nickname: nickName ? nickName : "",
+        tel,
+        avatarUrl: avatarUrl ? avatarUrl : constants.DEFAULT_AVATAR
+      };
+    }
+    case IS_NEW: {
+      return {
+        ...state,
+        isNew: true
+      };
+    }
+    case NOT_NEW: {
+      return {
+        ...state,
+        isNew: false
+      };
+    }
     default:
       return state;
-      break;
   }
-
-  return state;
 }

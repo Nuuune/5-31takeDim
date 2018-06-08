@@ -1,0 +1,102 @@
+/* pages/account/login/index.wxss */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff;
+  align-items: center;
+  justify-content: center;
+  padding: 0 90rpx;
+  position: relative;
+}
+
+.container .logo {
+  position: absolute;
+  top: 160rpx;
+  left: 300rpx;
+  width: 150rpx;
+  height: 150rpx;
+  display: block;
+  margin-bottom: 64rpx;
+}
+
+.login-form {
+  width: 570rpx;
+  border-radius:4px;
+  border:1rpx solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.01);
+  margin-bottom: 40rpx;
+}
+
+.input-group {
+  position: relative;
+  height: 90rpx;
+  padding: 20rpx 24rpx;
+}
+
+.mobile-input {
+  position:relative;
+
+  color:#333;
+  font-size:16px;
+  line-height:45px;
+  height:45px;
+
+  padding: 0 30rpx;
+  
+  margin-bottom:20px;
+  width: 570rpx;
+  
+  border-radius:4px;
+  border:1rpx solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.01);
+
+  text-decoration:none;
+  vertical-align:middle;
+}
+
+.input-group.mobile {
+  position: relative;
+  padding-left: 150rpx;
+}
+
+.input-group.mobile text {
+  position: absolute;
+  left: 30rpx;
+  top: 20rpx;
+  display: inline-block;
+  padding-right: 24rpx;
+  border-right: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+.input-group.mobile input {
+  font-size: 28rpx;
+  line-height: 1;
+}
+
+.input-group.sms {
+  border-top: 1rpx solid rgba(0, 0, 0, 0.05);
+}
+
+.input-group.sms input {
+  font-size: 28rpx;
+  line-height: 1;
+  width: 380rpx;
+}
+
+.input-group.sms button {
+  position: absolute;
+  top: 23rpx;
+  right: 24rpx;
+  border-top: 1rpx solid rgba(0, 0, 0, 0.05);
+}
+
+.ps {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.ps text {
+  color: #0FBB58;
+}

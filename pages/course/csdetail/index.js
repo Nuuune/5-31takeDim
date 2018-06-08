@@ -2,6 +2,7 @@
 import constants from "../../../constants";
 import {dedata} from "../../../json/course/coursed.js";
 
+import base from "../../base";
 
 //Redux actions
 import {fetchCourseDetail} from '../../../actions/courseAction';
@@ -15,7 +16,7 @@ let videoSrc = [
     'http://glico.aosaiban.com/dist/video/video3.mp4'
   ];
 
-let pageConfig = {
+let pageConfig = Object.assign({}, base, {
   data: {
     istab1: false,
     avater: constants.DEFAULT_AVATAR,
@@ -49,10 +50,17 @@ let pageConfig = {
     this.setData({isplay: true}, () => {
       this.videoContext.play();
     })
+  },
+
+  toBuy: function(e) {
+    if(!this.userIsNew()){
+      wx.navigateTo({
+        url: `../csbuy/index`
+      })
+    }
   }
 
-
-};
+});
 
 /**
  * Redux状态映射函数

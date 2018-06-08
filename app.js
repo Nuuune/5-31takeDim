@@ -10,28 +10,13 @@ const store = compose(
   applyMiddleware(...middleware)
 )(createStore)(reducers);
 
-import {wxInitSession} from 'actions/ucenterAction'
+import {initUserInfo} from 'actions/ucenterAction'
 
 /**
  * Main App
  */
 App(Provider(store)({
   onLaunch: function () {
-    wxInitSession(store);
-    
-    setTimeout(function() {
-      //wx check session
-      // wxInitSession(store);
-    }, 300);
-  },
-  globalData: {
-    userId: null,
-    nickname: null,
-    avatar: null,
-    cartContents: null,
-    jwt: null,
-    isLogin: null,
-    latitude: null,
-    longitude: null
+    initUserInfo(store)
   }
 }))

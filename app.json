@@ -7,14 +7,17 @@
     "pages/course/csbuy/index",
     "pages/course/mycourse/index",
 
+    "pages/ucenter/index2/index",
+    "pages/ucenter/login2/index",
+
     "pages/sns/home/index",
     "pages/sns/channel/list/index",
     "pages/sns/channel/info/index",
     "pages/sns/user/info/index",
     "pages/sns/user/followed/index",
     "pages/sns/user/follower/index",
-    "pages/ucenter/index2/index",
-    "pages/ucenter/smslogin/index",
+
+
     "pages/sns/feed/info/index",
     "pages/sns/feed/post/index",
     "pages/sns/topic/list/index",
@@ -27,7 +30,7 @@
     "pages/checkout/index",
     "pages/catalog/category/index",
     "pages/catalog/search/index",
-    "pages/ucenter/login/index",
+    
     "pages/cms/article/index"
   ],
   "window":{

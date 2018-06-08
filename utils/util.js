@@ -35,7 +35,7 @@ const formatDate = (dateToFormat, format) => {
 
 
 /**
- * 将一个时间字符串格式显示友好时间（如，1分钟内，2分钟前等等）。 
+ * 将一个时间字符串格式显示友好时间（如，1分钟内，2分钟前等等）。
  *
  * 规则：
  *   与当前时间相差60s以内(不包括60s)，显示刚刚；
@@ -61,22 +61,22 @@ const prettyTime = (time) => {
   // 刚刚：1分钟之内
   if (diff >= 0 && diff < 60) {
       result = "刚刚";
-  } 
+  }
   // 分钟前：1小时之内
   else if (diff > 60 && diff < 60 * 60) {
       fix = Math.floor(diff / 60);
       result = fix + "分钟前";
-  } 
+  }
   // 小时前：一天之内
   else if (diff > 60 * 60 && diff < 24 * 60 * 60) {
       fix = Math.floor(diff / (60 * 60));
       result = fix + "小时前";
-  } 
+  }
   // 天前：一周之内
   else if (diff > 24 * 60 * 60 && diff < 7 * 24 * 60 * 60) {
       fix = Math.floor(diff / (24 * 60 * 60));
       result = fix + "天前";
-  } 
+  }
   // 周前：一月之内
   else if (diff > 7 * 24 * 60 * 60 && diff < 28 * 24 * 60 * 60) {
       fix = Math.floor(diff / (24 * 7 * 60 * 60));
@@ -84,8 +84,8 @@ const prettyTime = (time) => {
   }
   // 具体日期：超过一个月，本年度内
   else if (nowDate.getFullYear() == prettyDate.getFullYear()) {
-      result = formatDate(prettyDate, "MM月dd日 hh:mm");  
-  } 
+      result = formatDate(prettyDate, "MM月dd日 hh:mm");
+  }
   // 具体日期：去年以前
   else {
       result = formatDate(prettyDate, "yyyy-MM-dd hh:mm");
@@ -131,7 +131,7 @@ const isEmpty = (value) => {
  */
 const isNumber = (value) => {
   return typeof value === 'number' && !isNaN(value)
-}  
+}
 
 
 /**
@@ -143,7 +143,7 @@ const getWindowHeight = (cartItems) => {
     let height = Math.floor(res.windowHeight * 750 / res.screenWidth) + 1;
 
     console.log(height)
-    
+
     return height;
   } catch (e) {
     // Do something when catch error
@@ -170,6 +170,17 @@ const getWindowWidth = (cartItems) => {
   return res.windowWidth;
 }
 
+// 获取页面路径
+const getPageUrl = () => {
+  var pages = getCurrentPages() //获取加载的页面
+
+  var currentPage = pages[pages.length-1] //获取当前页面的对象
+
+  var url = currentPage.route //当前页面url
+
+  return url;
+}
+
 module.exports = {
   formatImage: formatImage,
   isEmpty: isEmpty,
@@ -177,5 +188,6 @@ module.exports = {
   getWindowWidth: getWindowWidth,
   formatDate: formatDate,
   isNumber: isNumber,
-  prettyTime: prettyTime
+  prettyTime: prettyTime,
+  getPageUrl: getPageUrl
 }

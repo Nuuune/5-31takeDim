@@ -3,7 +3,7 @@ import util from '../utils/util';
 
 /*HOST*/
 const HOST_URL = 'https://api.freshkoo.com/dw/micro-api/';
-
+const NEW_HOST = `http://192.168.0.102:8001`;
 /**
  * wxRequest Method
  *
@@ -46,8 +46,9 @@ const getProductData = (params) => wxRequest(params, HOST_URL + 'panda/api/view/
 const getEcHomeData = (params) => wxRequest(params, HOST_URL + "/social/api/view/commerce")
 const getShoppingCart = (params) => wxRequest(params, HOST_URL + "/panda/api/view/shopcart?products=" + JSON.stringify(params.data.rawData))
 const getArticleData = (params) => wxRequest(params, HOST_URL + '/panda/api/view/article/' + params.data.articleId)
-const getCourseData = (params) => wxRequest(params, `http://192.168.0.102:8001/api/courses`)
-const getCourseDetail = (params) => wxRequest(params, `http://192.168.0.102:8001/api/course/${params.id}`)
+const getCourseData = (params) => wxRequest(params, `${NEW_HOST}/api/courses`)
+const getCourseDetail = (params) => wxRequest(params, `${NEW_HOST}/api/course/${params.id}`)
+const serverWxLogin = (params) => wxRequest(params, `${NEW_HOST}/api/account/login/wxcode`)
 
 const wxNewRequest = (params, url) => {
   wx.showToast({
@@ -56,7 +57,7 @@ const wxNewRequest = (params, url) => {
   });
 
   let ucenter = getApp().store.getState().ucenter;
-  console.log("ucenter jwt:" + ucenter.jwt)
+  console.log("ucenter token:" + ucenter.token)
 
   wx.request({
     url: url,
@@ -65,7 +66,7 @@ const wxNewRequest = (params, url) => {
     header: {
       'Content-Type': 'application/json',
       'source': 'WE_APP',
-      'memberEncode': ucenter.jwt
+      'memberEncode': ucenter.token
     },
     success: (res) => {
       params.success && params.success(res.data)
@@ -84,9 +85,8 @@ const wxNewRequest = (params, url) => {
   })
 }
 
-  const sendSMS = (params) => wxNewRequest(params, 'https://api.dinlab.cn/micro-api/api/account/send/code?mobile=' + params.data.mobile)
-  const doSMSLogin = (params) => wxNewRequest(params, 'https://api.dinlab.cn/micro-api/api/account/login/wxmobile')
-  const serverWxLogin = (params) => wxNewRequest(params, 'https://api.dinlab.cn/micro-api/api/account/login/wxcode')
+  const sendSMS = (params) => wxNewRequest(params, `${NEW_HOST}/api/account/send/code?mobile=${params.data.mobile}`)
+  const doSMSLogin = (params) => wxNewRequest(params, `${NEW_HOST}/api/account/login/vcode`)
 
   const getSNSHome = (params) => wxNewRequest(params, 'https://api.dinlab.cn/micro-api/api/community/hots')
   const getFollowedFeeds = (params) => wxNewRequest(params, 'https://api.dinlab.cn/micro-api/api/community')
