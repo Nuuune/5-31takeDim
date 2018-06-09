@@ -22,5 +22,23 @@ export const course_fmt = {
               numOfClasses
             };
           });
+  },
+  detail: function(data) {
+    let w, i, numOfClasses = 0;
+    if(data.chapters.length > 0) {
+      w = data.chapters.length;
+    }else {
+      return {
+        ...data,
+        numOfClasses
+      }
+    }
+    for(let i = 0; i < w; i++) {
+      numOfClasses += data.chapters[i].items.length;
+    }
+    return {
+      ...data,
+      numOfClasses
+    };
   }
 }

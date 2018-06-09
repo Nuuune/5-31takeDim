@@ -4,7 +4,7 @@
   </view>
   <view class="flex flex-center align-stretch">
     <text>C4D实战全能班 (180530)</text>
-    <text>￥3680</text>
+    <text>￥{{courseDetail.price}}</text>
   </view>
 </view>
 <view class="flex flex-row flex-between pad-box mar-top">
@@ -14,21 +14,21 @@
 <view class="flex align-stretch mar-top">
   <view class="pad-box bottom-line flex flex-row flex-between">
     <text>订单总额</text>
-    <text class="font-deepgray">3680</text>
+    <text class="font-deepgray">{{courseDetail.price}}</text>
   </view>
   <view class="pad-box flex flex-row flex-between">
     <text>优惠券</text>
     <text class="font-deepgray">- 0</text>
   </view>
 </view>
-<radio-group class="flex align-stretch mar-top" bindchange="radioChange">
-  <label class="pad-box flex flex-row ">
-    <radio value="wx" checked="{{false}}"/> <image src="../../../images/wx-icon.png" class="shape-normal"></image>微信付款
-  </label>
-</radio-group>
+<view class="flex align-stretch mar-top" bindchange="radioChange">
+  <view class="pad-box flex flex-row ">
+    <view class="radio-btn"><icon type="success" size="16" /></view> <image src="../../../images/wx-icon.png" class="shape-normal"></image>微信付款
+  </view>
+</view>
 <!-- 购买按钮组开始 -->
 <view class="flex flex-row btns-wrap bg-white" >
-  <view class="flex-item-1 btn bg-white font-deepgray"><text>应付：<text class="font-org">3680</text></text></view>
-  <view class="flex-item-1 btn bg-org font-white">立即购买</view>
+  <view class="flex-item-1 btn bg-white font-deepgray"><text>应付：<text class="font-org">{{courseDetail.price}}</text></text></view>
+  <view class="flex-item-1 btn bg-org font-white" bind:tap="buy">立即购买</view>
 </view>
 <!-- 购买按钮组结束 -->

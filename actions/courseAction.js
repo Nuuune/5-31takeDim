@@ -102,7 +102,7 @@ export function fetchCourseDetail(option = {}) {
       id: option.id,
       success: (res) => {
         if (res.success == true) {
-          dispatch(setDetail(res.data));
+          dispatch(setDetail(course_fmt.detail(res.data)));
           option.success && option.success();
         } else {
           dispatch(fetchCourseFailure(res.msg));
@@ -117,6 +117,17 @@ export function fetchCourseDetail(option = {}) {
   }
 }
 
+/**
+ * 支付流程
+ */
+export function wxPay(option = {}) {
+  console.log(`wxPay-start`)
+  console.log(option)
+  // return dispatch => {
+  // 
+  // }
+}
+
 
 module.exports = {
   fetchCourseDetail,
@@ -124,5 +135,6 @@ module.exports = {
   fetchCourseSuccess,
   fetchCourseFailure,
   fetchCourseData,
-  clearErrMsg
+  clearErrMsg,
+  wxPay
 }

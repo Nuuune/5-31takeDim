@@ -53,9 +53,10 @@ let pageConfig = Object.assign({}, base, {
   },
 
   toBuy: function(e) {
+    let courseId = this.data.courseDetail.id;
     if(!this.userIsNew()){
       wx.navigateTo({
-        url: `../csbuy/index`
+        url: `../csbuy/index?id=${courseId}`
       })
     }
   }

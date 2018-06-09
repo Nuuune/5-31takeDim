@@ -38,3 +38,10 @@ page {
   background: #f2aa46;
   border-radius:14rpx;
 }
+.radio-btn {
+  border: 1rpx solid #dbdbdb;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  margin-right: 10rpx;
+}

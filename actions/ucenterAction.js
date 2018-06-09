@@ -144,12 +144,12 @@ const serverLogin = (wxcode, dispatch) => {
         }
       } else {
         // 没有成功重新登陆
-        serverLogin(wxcode, dispatch);
+        // serverLogin(wxcode, dispatch);
       }
     },
     fail: function(err) {
       console.log(`失败: ${err}`)
-      serverLogin(wxcode, dispatch);
+      // serverLogin(wxcode, dispatch);
     }
   })
 }

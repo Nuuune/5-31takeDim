@@ -83,7 +83,7 @@ SS</text>
 <!-- 课程目录开始 -->
 <view hidden="{{istab1}}" class="flex cata-wrap clear-padding">
   <view class="title">
-    <text>课程目录</text><text class="title-des">(共3节课)</text>
+    <text>课程目录</text><text class="title-des">(共{{courseDetail.numOfClasses}}节课)</text>
   </view>
 </view>
 <scroll-view hidden="{{istab1}}" scroll-y="{{true}}" class="bg-gray content-2">
