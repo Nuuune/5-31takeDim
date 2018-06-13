@@ -4,13 +4,18 @@
     bindplay="videoPlay"
     bindpause="videoPause"
     src="{{currVideo}}"
-    show-play-btn="{{false}}"
-    show-center-play-btn="{{false}}">
-    <cover-view class="my-video-control">
-      <cover-view hidden="{{isplay}}" class="my-video-control-shadow"></cover-view>
-      <cover-view hidden="{{isplay}}" class="my-video-begin" bind:tap="playVideo">
+    catch:tap="videoTap"
+    show-play-btn="{{isFullScreen}}"
+    show-center-play-btn="{{false}}"
+    bindfullscreenchange="videoFullscreenchange">
+    <cover-view wx:if="{{isNewV && canIuse}}" class="my-video-control">
+      <cover-view class="my-video-control-shadow"></cover-view>
+      <cover-view class="my-video-begin" bind:tap="playNewV">
         开始学习
       </cover-view>
+    </cover-view>
+    <cover-view wx:elif="{{canIuse}}" hidden="{{isplay}}" class="my-video-btn-play" bind:tap="playVideo">
+      <cover-image src="/images/btn-play_02.png"></cover-image>
     </cover-view>
   </video>
 </view>
@@ -83,7 +88,7 @@ SS</text>
 <!-- 课程目录开始 -->
 <view hidden="{{istab1}}" class="flex cata-wrap clear-padding">
   <view class="title">
-    <text>课程目录</text><text class="title-des">(共{{courseDetail.numOfClasses}}节课)</text>
+    <text>课程目录</text><text class="title-des">(共{{courseDetail.numOfClasses ? courseDetail.numOfClasses : 0}}节课)</text>
   </view>
 </view>
 <scroll-view hidden="{{istab1}}" scroll-y="{{true}}" class="bg-gray content-2">

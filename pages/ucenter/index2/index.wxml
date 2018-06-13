@@ -1,6 +1,6 @@
 <view class="header flex flex-center">
   <image src="../../../images/me-bg.png"></image>
-  <view wx:if="{{isNew}}" bind:tap="toLogin" class="login-btn">
+  <view wx:if="{{!isLogin}}" bind:tap="toLogin" class="login-btn">
     <text>点击登陆</text>
   </view>
   <view wx:else class="flex info">

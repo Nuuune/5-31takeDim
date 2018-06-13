@@ -16,6 +16,17 @@ page {
   overflow: hidden;
   position: relative;
 }
+.my-video-btn-play {
+  width:118rpx;
+  height:118rpx;
+  position: absolute;
+  left: calc( 50% - 59rpx);
+  top: calc( 50% - 59rpx);
+}
+.my-video-btn-play > image {
+  width:118rpx;
+  height:118rpx;
+}
 .my-video-control-shadow {
   background: #000;
   opacity: 0.6;

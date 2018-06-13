@@ -6,6 +6,20 @@ page {
 page > view {
   background: #fff;
 }
+.scroll-course, .noc-bg-wrap {
+  height: calc(100% - 92rpx);
+}
+.noc-bg-wrap {
+  background: inherit;
+}
+.noc-bg-wrap image {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom:28rpx;
+}
+.noc-bg-wrap text {
+  color: #989898;
+}
 .tab-wrap {
   padding: 18rpx;
   border-top: 4rpx solid #edecec;

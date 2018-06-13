@@ -45,6 +45,7 @@ const pageConfig = Object.assign({}, base, {
 
   onLoad: function(){
     console.log(this.store.getState());
+    console.log(this.data.isNew);
   }
 
 });
@@ -53,7 +54,7 @@ const pageConfig = Object.assign({}, base, {
  * Map Redux State to Page Data
  */
 const mapStateToData = state => ({
-  isNew: state.ucenter.isNew,
+  isLogin: state.ucenter.isLogin,
   avatarUrl: state.ucenter.avatarUrl,
   nickname: state.ucenter.nickname
 });

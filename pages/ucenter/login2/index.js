@@ -146,9 +146,16 @@ const pageConfig = Object.assign({}, base, {
 
     this.fetchLogin({mobile, vcode, token, vtoken}, {
       success: () => {
-        wx.redirectTo({
-          url: this.data.comeUrl
-        })
+        let url = this.data.comeUrl;
+        if(url.indexOf('/pages/ucenter/index2/index') > -1) {
+          wx.reLaunch({
+            url: url
+          })
+        } else {
+          wx.redirectTo({
+            url: url
+          })
+        }
       },
       fail: () => {
         wx.showToast({

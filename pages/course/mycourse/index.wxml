@@ -10,27 +10,39 @@
 </view>
 <!-- tab结束 -->
 <!-- 列表开始 -->
-<scroll-view>
-  <view wx:for="{{courseList}}" class="list-wrap" wx:key="{{idex}}">
-    <navigator class="article">
-      <view class="image">
-        <image src="{{item.image}}"></image>
-        <text class="tag">{{item.label}}</text>
-      </view>
-      <view class="content">
-        <text class="title">{{item.title}}</text>
-        <text wx:if="{{item.content}}" class="subtitle ellipsis">{{item.content}}</text>
+<block wx:if="{{courseList}}">
+  <scroll-view class="scroll-course">
+    <view wx:for="{{courseList}}" class="list-wrap" wx:key="{{idex}}">
+      <navigator class="article">
+        <view class="image">
+          <image src="{{item.image}}"></image>
+          <text class="tag">{{item.label}}</text>
+        </view>
+        <view class="content">
+          <text class="title">{{item.title}}</text>
+          <text wx:if="{{item.content}}" class="subtitle ellipsis">{{item.content}}</text>
 
-        <text class="class">{{item.numOfClasses}}节课</text>
-        <text class="follow">{{item.follow}}人已购买</text>
-      </view>
-    </navigator>
-  </view>
-  <view wx:if="{{isFetching}}" class="flex flex-center loading">
-    <text>加载中...</text>
-  </view>
-  <view wx:if="{{errorMsg}}" class="flex flex-center loading">
-    <text>{{errorMsg}}</text>
-  </view>
-</scroll-view>
+          <text class="class">{{item.numOfClasses}}节课</text>
+          <text class="follow">{{item.follow}}人已购买</text>
+        </view>
+      </navigator>
+    </view>
+    <view wx:if="{{isFetching}}" class="flex flex-center loading">
+      <text>加载中...</text>
+    </view>
+    <view wx:if="{{errorMsg}}" class="flex flex-center loading">
+      <text>{{errorMsg}}</text>
+    </view>
+  </scroll-view>
+</block>
 <!-- 列表结束 -->
+<!-- 没有课程时的背景开始 -->
+<block wx:else>
+  <view class="noc-bg-wrap flex flex-center">
+    <view>
+      <image src="/images/laba.png"></image>
+    </view>
+    <text>前往发现，浏览更多精彩课程</text>
+  </view>
+</block>
+<!-- 没有课程时的背景结束 -->

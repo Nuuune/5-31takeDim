@@ -18,11 +18,14 @@ let videoSrc = [
 
 let pageConfig = Object.assign({}, base, {
   data: {
-    istab1: false,
+    istab1: true,
     avater: constants.DEFAULT_AVATAR,
     currVideo: '',
     isplay: false,
-    courseDetail: {}
+    isNewV: true,
+    courseDetail: {},
+    isFullScreen: false,
+    canIuse: wx.canIUse('video.show-play-btn')
   },
   toggleTab: function(e) {
     this.setData({istab1: !this.data.istab1});
@@ -35,15 +38,17 @@ let pageConfig = Object.assign({}, base, {
   changeVideo: function(e) {
     let vid = e.currentTarget.dataset.vid;
     this.videoContext.pause();
-    this.setData({currVideo: videoSrc[vid], isplay:false});
+    this.setData({currVideo: videoSrc[vid], isNewV: true});
   },
   /* video标签相关事件 */
   videoPlay: function(e) {
     console.log(e);
+    this.setData({isplay: true});
     console.log(`视频开始播放`);
   },
   videoPause: function(e) {
     console.log(e);
+    this.setData({isplay: false});
     console.log(`视频已暂停`);
   },
   playVideo: function(e) {
@@ -51,7 +56,20 @@ let pageConfig = Object.assign({}, base, {
       this.videoContext.play();
     })
   },
-
+  playNewV: function(e) {
+    this.setData({isplay: true, isNewV: false}, () => {
+      this.videoContext.play();
+    })
+  },
+  videoTap: function(e) {
+    let isplay = this.data.isplay;
+    if(isplay) {
+      this.videoContext.pause();
+    }
+  },
+  videoFullscreenchange: function(e) {
+    this.setData({isFullScreen: e.detail.fullScreen});
+  },
   toBuy: function(e) {
     let courseId = this.data.courseDetail.id;
     if(!this.userIsNew()){

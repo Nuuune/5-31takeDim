@@ -3,7 +3,7 @@ import util from "../utils/util";
 import constants from "../constants";
 
 import { FETCH_LOGIN, ASYNC_STATUS, SET_USER_TOKEN,
-NOT_NEW, IS_NEW, SET_USER_INFO } from '../action-types';
+NOT_NEW, IS_NEW, SET_USER_INFO, NOT_LOGIN, IS_LOGIN } from '../action-types';
 
 /**
  * Initial State
@@ -100,6 +100,19 @@ export default function reducer(state = initialState, action = {}) {
       return {
         ...state,
         isNew: false
+      };
+    }
+    case IS_LOGIN: {
+      console.log('login');
+      return {
+        ...state,
+        isLogin: true
+      };
+    }
+    case NOT_LOGIN: {
+      return {
+        ...state,
+        isLogin: false
       };
     }
     default:

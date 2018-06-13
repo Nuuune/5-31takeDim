@@ -7,7 +7,7 @@
  */
 
 //action types
-import {FETCH_LOGIN, ASYNC_STATUS, NOT_NEW, IS_NEW, SET_USER_INFO, SET_USER_TOKEN} from '../action-types'
+import {FETCH_LOGIN, ASYNC_STATUS, NOT_NEW, IS_NEW, SET_USER_INFO, SET_USER_TOKEN, IS_LOGIN} from '../action-types'
 
 //ajax request
 import api from '../api/api'
@@ -83,6 +83,9 @@ const fetchLoginFailure = (errMsg) => {
            dispatch({
              type: NOT_NEW
            });
+           dispatch({
+              type: IS_LOGIN
+           });
            _op.success && _op.success();
          } else {
            dispatch(fetchLoginFailure(res.message))
@@ -138,7 +141,10 @@ const serverLogin = (wxcode, dispatch) => {
         });
         if(user){
           dispatch({type: NOT_NEW});
-          dispatch({type: SET_USER_INFO, data: user})
+          dispatch({type: SET_USER_INFO, data: user});
+          dispatch({
+             type: IS_LOGIN
+          });
         } else {
           dispatch({type: IS_NEW});
         }

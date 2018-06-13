@@ -3,7 +3,7 @@ import util from '../utils/util';
 
 /*HOST*/
 const HOST_URL = 'https://api.freshkoo.com/dw/micro-api/';
-const NEW_HOST = `http://192.168.0.105:8001`;
+const NEW_HOST = `https://api.dinlab.cn/micro-api`;
 /**
  * wxRequest Method
  *
