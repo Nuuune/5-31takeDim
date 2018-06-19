@@ -10,17 +10,17 @@
 
 
     <view class="articles">
-      <navigator wx:for="{{articles}}" wx:key="{{article_id}}" url="/pages/course/csdetail/index?id={{item.id}}" class="article">
+      <navigator wx:for="{{articles}}" wx:key="f{{item.id}}" url="/pages/course/csdetail/index?id={{item.id}}" class="article">
         <view class="image">
           <image src="{{item.image}}?x-oss-process=style/312x200"></image>
-          <text class="tag">{{item.label}}</text>
+          <text class="tag">{{item.type}}</text>
         </view>
         <view class="content">
-          <text class="title">{{item.title}}</text>
-          <text wx:if="{{item.content}}" class="subtitle ellipsis">{{item.content}}</text>
+          <text class="title">{{item.name}}</text>
+          <text wx:if="{{item.description}}" class="subtitle ellipsis">{{item.description}}</text>
 
           <text class="class">{{item.numOfClasses}}节课</text>
-          <text class="follow">{{item.follow}}人已购买</text>
+          <text class="follow">{{item.follow ? item.follow : 0}}人已购买</text>
         </view>
       </navigator>
     </view>

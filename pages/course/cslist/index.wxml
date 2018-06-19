@@ -2,7 +2,7 @@
 <view wx:for="{{courseList}}" class="list-wrap" wx:key="{{idex}}">
   <navigator url="/pages/course/csdetail/index?id={{item.id}}" class="article">
     <view class="image">
-      <image src="{{item.image}}"></image>
+      <image src="{{item.image}}?x-oss-process=style/312x200"></image>
       <text class="tag">{{item.type}}</text>
     </view>
     <view class="content">

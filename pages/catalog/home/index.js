@@ -1,7 +1,5 @@
-/**
- * 
- */
-
+//Redux actions
+import {fetchHomeData} from '../../../actions/catalogHomeAction';
 //async status
 import { ASYNC_STATUS } from "../../../action-types";
 
@@ -17,7 +15,7 @@ import catalogData from '../../../json/catalog/catalog.json.js';
  */
 const pageConfig = {
   /**
-   * 
+   *
    */
   data: {
     homeData: catalogData,
@@ -30,7 +28,7 @@ const pageConfig = {
 
   /**
    * onSwiperChange
-   * 
+   *
    * @param e event object
    */
   onSwiperChange: function (e) {
@@ -41,29 +39,49 @@ const pageConfig = {
 
   /**
    * onPullDownRefresh
-   * 
+   *
    * @param e event object
    */
   onPullDownRefresh: function(e) {
-    this.fetchHomeData("refresh");
+    this.fetchHomeData('refresh');
   },
 
   /**
    * Page on Load
    */
   onLoad: function () {
+    this.fetchHomeData('load');
     this.setData({
       homeData: catalogData.data,
-      featured: catalogData.featured,
       topics: catalogData.topics,
       hots: catalogData.hots,
-      authors: catalogData.authors,
-      latest: catalogData.latest
+      authors: catalogData.authors
     });
   }
 };
 
 /**
- * Page
+ * Redux状态映射函数
+ *
+ * @param state redux state对象
  */
-Page(pageConfig)
+const mapStateToData = state => ({
+  featured: state.catalogHome.homeData.featured,
+  latest: state.catalogHome.homeData.featured
+});
+
+/**
+ * Redux action分发映射射函数
+ *
+ * @param dispatch function
+ */
+const mapDispatchToPage = dispatch => ({
+  fetchHomeData: () => dispatch(fetchHomeData())
+});
+
+/**
+ * Page页面
+ *
+ * Redux connect state and action to page
+ */
+Page(connect(mapStateToData, mapDispatchToPage)(pageConfig));
