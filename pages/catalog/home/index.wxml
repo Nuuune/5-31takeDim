@@ -2,11 +2,11 @@
 <view wx:if="{{homeData}}" class="container">
   <block wx:for="{{homeData}}" wx:key="">
     <!-- Search -->
-    <navigator url="../search/index" class="search" wx:if="{{item.type=='search'}}">
+    <!-- <navigator url="../search/index" class="search" wx:if="{{item.type=='search'}}">
       <text wx:if="{{item.data}}">{{item.data}}</text>
       <text wx:else>请输入关键字、作者等</text>
       <text class="fa fa-search"></text>
-    </navigator>
+    </navigator> -->
 
     <!-- Banner -->
     <block  wx:if="{{item.type=='banner'}}">

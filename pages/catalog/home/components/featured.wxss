@@ -42,7 +42,7 @@
 
 .block.featured .article .image .tag {
   border-radius: 4rpx;
-  background-color: #8572fb;
+  background-color: #0fb957;
   font-size: 20rpx;
   color:rgba(255,255,255,0.85);
   padding: 4rpx 8rpx;
@@ -76,7 +76,7 @@
 
 .block.featured .article .content .class {
   font-size: 24rpx;
-  color: #8572fb;
+  color: #0fb957;
   position: absolute;
   bottom: 0;
   left: 32rpx;
@@ -84,7 +84,7 @@
 
 .block.featured .article .content .follow {
   font-size: 24rpx;
-  color: #8572fb;
+  color: #0fb957;
   position: absolute;
   bottom: 0;
   right: 0;

@@ -4,10 +4,10 @@
       <text class="title">最新课程</text>
       <text class="sub-title">最新上架的课程，先睹为快</text>
     </view>
-    
-    
+
+
     <view class="articles">
-      <navigator  wx:for="{{articles}}" wx:key="{{article_id}}" class="article">
+      <navigator  wx:for="{{articles}}" wx:key="{{article_id}}" url="/pages/course/csdetail/index?id={{item.id}}" class="article">
         <image src="{{item.image}}?x-oss-process=style/312x200"></image>
         <view class="content">
           <text class="tag">{{item.label}}</text>

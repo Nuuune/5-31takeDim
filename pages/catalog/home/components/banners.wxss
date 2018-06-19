@@ -78,7 +78,7 @@
 }
 
 .block.banners .body swiper-item .mask .tag {
-  background: #8572fb;
+  background: #0fb957;
   display: inline-block;
   font-size: 20rpx;
   font-weight: bold;
