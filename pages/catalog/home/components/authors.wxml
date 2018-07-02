@@ -7,16 +7,16 @@
 
     <scroll-view scroll-x style="width: 714rpx">
       <view class="wrapper">
-        <view  wx:for="{{authors}}" wx:key="{{author_id}}" class="author">
+        <view  wx:for="{{authors}}" wx:key="{{item.id}}" class="author">
             <view class="meta">
-              <image src="{{item.image}}"></image>
+              <image src="{{item.avatar}}"></image>
               <view class="info">
-                <text class="name">{{item.name}}</text>
-                <text class="tag">{{item.label}}</text>
+                <text class="name">{{item.nickname}}</text>
+                <text class="tag">{{item.title}}</text>
               </view>
             </view>
-            <text class="desc">{{item.content}}</text>
-            
+            <text class="desc">{{item.description}}</text>
+
             <button class="button follow">关注</button>
         </view>
       </view>

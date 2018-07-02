@@ -6,6 +6,10 @@ export const course_fmt = {
   list: function(data) {
     return data.map((item) => {
             let w, i, numOfClasses = 0;
+            // 截取第一行描述
+            let des = item.description;
+            item.description = des.slice(0,des.indexOf("\n"));
+            // 统计总课时
             if(item.chapters.length > 0) {
               w = item.chapters.length;
             }else {

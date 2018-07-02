@@ -11,15 +11,14 @@ import {fetchCourseDetail} from '../../../actions/courseAction';
 import { connect } from '../../../libs/redux-weapp/wechat-weapp-redux.min';
 
 let videoSrc = [
-    'http://glico.aosaiban.com/dist/video/video1.mp4',
-    'http://glico.aosaiban.com/dist/video/video2.mp4',
-    'http://glico.aosaiban.com/dist/video/video3.mp4'
+    'https://zbird-1251886366.cos.ap-shanghai.myqcloud.com/welcome.mp4',
+    'https://zbird-1251886366.cos.ap-shanghai.myqcloud.com/welcome.mp4',
+    'https://zbird-1251886366.cos.ap-shanghai.myqcloud.com/welcome.mp4'
   ];
 
 let pageConfig = Object.assign({}, base, {
   data: {
     istab1: true,
-    avater: constants.DEFAULT_AVATAR,
     currVideo: '',
     isplay: false,
     isNewV: true,
@@ -31,8 +30,12 @@ let pageConfig = Object.assign({}, base, {
     this.setData({istab1: !this.data.istab1});
   },
   onLoad: function(e) {
-    this.fetchCourseDetail({id: e.id});
-    this.setData({currVideo: videoSrc[0]});
+    this.fetchCourseDetail({
+      id: e.id,
+      success: () => {
+        this.setData({currVideo: this.data.courseDetail.videoUrl});
+      }
+    });
     this.videoContext = wx.createVideoContext('myVideo');
   },
   changeVideo: function(e) {

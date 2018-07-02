@@ -8,7 +8,7 @@
 
     <view class="articles">
       <navigator  wx:for="{{articles}}" wx:key="{{article_id}}" url="/pages/course/csdetail/index?id={{item.id}}" class="article">
-        <image src="{{item.image}}?x-oss-process=style/312x200"></image>
+        <image src="{{item.image}}?imageView2/2/w/312/h/200"></image>
         <view class="content">
           <text class="tag">{{item.type}}</text>
           <text class="title">{{item.name}}</text>

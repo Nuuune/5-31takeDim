@@ -6,7 +6,8 @@ import { CATALOG_FETCH_HOME, ASYNC_STATUS } from '../action-types';
 const initialState = {
   homeData: {
     featured: [],
-    latest: []
+    latest: [],
+    trainers: []
   },
   method: "load",
   fetchStatus: null

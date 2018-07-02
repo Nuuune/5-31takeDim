@@ -46,7 +46,7 @@
 
   <!-- 热门作者 -->
   <import src="components/authors.wxml"/>
-  <template is="echome-authors" data="{{authors: authors}}"></template>
+  <template is="echome-authors" data="{{authors: trainers}}"></template>
 
 
   <!-- 热门话题 -->

@@ -24,39 +24,39 @@ module.exports = {
         "title": "每日为你精心推荐优质设计课程",
         "data": [
           {
-            "id": 360,
-            "image": "https://designup-sns.oss-cn-hangzhou.aliyuncs.com/catalog/new/20180505172300.png",
+            "id": 1,
+            "image": "https://zbird-1251886366.cos.ap-shanghai.myqcloud.com/course0.png",
             "type": 1,
-            "title": "网易刷屏H5套路实战演练",
-            "content": "网易资深交互团队教你现象级营销H5背后的逻辑与套路",
-            "label": "h5营销设计",
+            "title": "Drawing and Painting in Photoshop",
+            "content": "达人带你进入数字绘画的从小白到进阶之旅",
+            "label": "交互设计",
             "url": null
           },
           {
-            "id": 360,
-            "image": "http://designup-sns.oss-cn-hangzhou.aliyuncs.com/catalog/new/b2.jpg",
+            "id": 2,
+            "image": "https://din-1251886366.cos.ap-shanghai.myqcloud.com/banner1.png",
             "type": 1,
-            "title": "从零开始学UI图标设计",
-            "content": "必须掌握的一套标准化图标设计语言",
-            "label": "UI设计",
+            "title": "AR增强现实app入门与开发实战课程",
+            "content": "达人带你进入AR增强现实的从小白到进阶之旅",
+            "label": "AR",
             "url": null
           },
           {
-            "id": 360,
-            "image": "http://designup-sns.oss-cn-hangzhou.aliyuncs.com/catalog/new/b3.png",
+            "id": 3,
+            "image": "https://din-1251886366.cos.ap-shanghai.myqcloud.com/banner3.png",
             "type": 1,
-            "title": "AI商业插画进阶课：色彩设计与应用",
-            "content": "通过23年色彩设计经验教你创作出惊艳的商业作品",
-            "label": "插画设计",
+            "title": "工业设计基础课",
+            "content": "达人带你进入工业设计的从小白到进阶之旅",
+            "label": "工业设计",
             "url": null
           },
           {
-            "id": 360,
-            "image": "http://designup-sns.oss-cn-hangzhou.aliyuncs.com/catalog/new/b4.jpg",
+            "id": 4,
+            "image": "https://din-1251886366.cos.ap-shanghai.myqcloud.com/banner2.png",
             "type": 1,
-            "title": "跟何清超老师学达芬奇之电影色调",
-            "content": "每个人都有的电影梦，打造电影级视觉效果",
-            "label": "视觉设计",
+            "title": "卡通角色设计",
+            "content": "达人带你进入卡通角色设计的从小白到进阶之旅",
+            "label": "CG绘画",
             "url": null
           }
         ]

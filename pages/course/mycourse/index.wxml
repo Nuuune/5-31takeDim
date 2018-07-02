@@ -15,7 +15,7 @@
     <view wx:for="{{courseList}}" class="list-wrap" wx:key="{{idex}}">
       <navigator class="article">
         <view class="image">
-          <image src="{{item.image}}"></image>
+          <image src="{{item.image}}?imageView2/2/w/312/h/200"></image>
           <text class="tag">{{item.label}}</text>
         </view>
         <view class="content">

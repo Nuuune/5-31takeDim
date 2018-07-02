@@ -67,7 +67,8 @@ const pageConfig = {
  */
 const mapStateToData = state => ({
   featured: state.catalogHome.homeData.featured,
-  latest: state.catalogHome.homeData.featured
+  latest: state.catalogHome.homeData.latest,
+  trainers: state.catalogHome.homeData.trainers
 });
 
 /**

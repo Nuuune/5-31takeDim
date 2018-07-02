@@ -17,7 +17,7 @@
         <block wx:for="{{banners.data}}" wx:key="{{banners_id}}">
           <swiper-item>
             <view class="banner">
-              <image src="{{item.image}}?x-oss-process=style/686x466"></image>
+              <image src="{{item.image}}?imageView2/2/w/686/h/466"></image>
               <view class="mask">
                 <text class="tag">{{item.label}}</text>
                 <text class="title ellipsis">{{item.title}}</text>

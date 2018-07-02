@@ -3,6 +3,8 @@
     id="myVideo"
     bindplay="videoPlay"
     bindpause="videoPause"
+    bindended="videoPause"
+    poster="{{courseDetail.image}}"
     src="{{currVideo}}"
     catch:tap="videoTap"
     show-play-btn="{{isFullScreen}}"
@@ -30,12 +32,12 @@
   <view class="content">
     <view class="flex flex-row flex-between intro-1-wrap align-start">
       <view class="flex flex-center align-start">
-        <text>C4D实战全能班 (180530)</text>
+        <text>{{courseDetail.name}} (180530)</text>
         <text><text class="zan-icon zan-icon-gift"></text> 5月30日 20:30 开课</text>
       </view>
       <view class="flex flex-center align-start">
-        <text class="font-org">￥3880.00</text>
-        <text>109人已购买</text>
+        <text class="font-org">￥{{courseDetail.price}}</text>
+        <text>{{courseDetail.follow ? courseDetail.follow : 0}}人已购买</text>
       </view>
     </view>
     <view class="flex flex-row flex-between prefer-wrap">
@@ -44,7 +46,7 @@
         <text>剩余11名额</text>
       </view>
       <view class="flex flex-center">
-        <text class="text-delete">原价：￥7000.00</text>
+        <text class="text-delete">原价：￥{{courseDetail.marketPrice}}</text>
       </view>
     </view>
     <view class="flex teacher-intro-wrap clear-padding">
@@ -52,10 +54,10 @@
         <text>讲师简介</text>
       </view>
       <view class="flex flex-row align-start flex-start teacher-info">
-        <view class="avater"><image src="{{avater}}"></image></view>
+        <view class="avater"><image src="{{courseDetail.trainer.avatar}}"></image></view>
         <view class="flex align-start">
-          <text class="name">TVart</text>
-          <text class="intro">Adobe中国后期合成专家讲师，AUTODESK教育专家，3D影像专家</text>
+          <text class="name">{{courseDetail.trainer.nickname}}</text>
+          <text class="intro">{{courseDetail.trainer.description}}</text>
         </view>
       </view>
     </view>
@@ -64,22 +66,11 @@
         <text>课程简介</text>
       </view>
       <view class="course-intro-detail">
-        <text>超级福利
-
-5月10日上午10：00正式预售
-
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHHHHHHHHHHHHHHHHHHHH
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-HHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-
-SSSSS
-SS</text>
+        <text>{{courseDetail.description}}</text>
       </view>
-      <view class="ad">
+      <!-- <view class="ad">
         <image></image>
-      </view>
+      </view> -->
     </view>
     <view class="ph-box">--- 到底了 ---</view>
   </view>

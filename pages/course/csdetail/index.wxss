@@ -94,6 +94,9 @@ page {
   font-weight:600;
   margin-bottom:9rpx;
 }
+.intro-1-wrap > view:first-child {
+  max-width: 400rpx;
+}
 .intro-1-wrap > view > text + text {
   font-size:22rpx;
   color: #949494;

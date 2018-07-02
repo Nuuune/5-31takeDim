@@ -40,6 +40,7 @@ export function fetchHomeFailure() {
 
 function getHomeData(option) {
   let _op = option ? option : {};
+  // 热门课程
   let p1 = new Promise((resolve, reject) => { api.getCourseData({
     success: (data) => {
       if(data.success) {
@@ -49,6 +50,7 @@ function getHomeData(option) {
       }
     }
   })});
+  // 最新课程
   let p2 = new Promise((resolve, reject) => { api.getCourseData({
     success: (data) => {
       if(data.success) {
@@ -58,8 +60,18 @@ function getHomeData(option) {
       }
     }
   })});
+  // 人气讲师
+  let p3 = new Promise((resolve, reject) => { api.getTrainersData({
+    success: (data) => {
+      if(data.success) {
+        resolve(data.data.slice(0,4));
+      } else {
+        reject(data.msg);
+      }
+    }
+  })});
 
-  return Promise.all([p1,p2]).then(
+  return Promise.all([p1,p2,p3]).then(
     (values) => {
       _op.success && _op.success(values)
     }
@@ -83,7 +95,8 @@ export function fetchHomeData(method) {
           status: ASYNC_STATUS.SUCCESS,
           data: {
             featured: values[0],
-            latest: values[1]
+            latest: values[1],
+            trainers: values[2]
           }
         })
         console.log(values);
